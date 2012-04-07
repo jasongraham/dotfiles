@@ -1,0 +1,2 @@
+AlwaysInTerm = ssh ftp lynx vi vim mutt
+TabTimeout = 200

@@ -1,0 +1,19 @@
+# .screenrc
+
+# deactive startup message
+startup_message off
+
+# Fix residual editor text
+altscreen on
+
+# use 256 colors
+term screen-256color
+terminfo rxvt-unicode 'Co#256:AB=\E[48;5;%dm:AF=\E[38;5;%dm'
+
+# use X scrolling mechanism
+termcapinfo xterm* ti@:te@
+
+hardstatus off
+hardstatus alwayslastline
+hardstatus string '%{= kG}[ %{G}%H %{g}][%= %{= kw}%?%-Lw%?%{r}(%{W}%n*%f%t%?(%u)%?%{r})%{w}%?%+Lw%?%?%= %{g}][%{B} %m-%d %{W} %c %{g}]'
+
