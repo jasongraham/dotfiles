@@ -5,7 +5,7 @@
 for f in * ; do
 
     # don't link this script
-    if [ "$f" == $0 ] ; then
+    if [ ["$f" == $0] -o ["$f" == "Readme.md"] ] ; then
         continue
     fi
 
