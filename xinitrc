@@ -13,6 +13,20 @@ xmodmap $HOME/.xmodmap
 if [ $HOSTNAME = "jrg-thinkpad" ] ; then
     exec ck-launch-seesion gnome-session
 else
+
+    # if gnome-keyring is installed, make it useful
+    if [ -x `which gnome-keyring-daemon` ] ; then
+
+        # start it
+        eval $(`which gnome-keyring-daemon` --start --components=gpg,pkcs11,secrets,ssh)
+
+        # export important env vars
+        export SSH_AUTH_SOCK
+        export GPG_AGENT_INFO
+        export GNOME_KEYRING_CONTROL
+        export GNOME_KEYRING_PID
+    fi
+
     # turn off energy star feature of screen
     xset -dpms
 
