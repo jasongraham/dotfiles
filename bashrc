@@ -92,3 +92,7 @@ export EDITOR=vim
 
 export PATH=$PATH:/home/grahjm2a/bin:/home/grahjm2a/.gem/ruby/1.9.1/bin
 
+# Spit out reminders when I open a terminal, if there is a reminders file
+if [ -f $HOME/.reminders ] && [ -x /usr/bin/remind ]; then
+    /usr/bin/remind $HOME/.reminders
+fi
