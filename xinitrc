@@ -36,6 +36,8 @@ else
     xrdb -merge $HOME/.Xresources
     xcompmgr -c &
     thunar --daemon &
+    # daemonize urxvt
+    /usr/bin/urxvtd -q -o -f
     $HOME/bin/wallpaper.sh &
     #exec ck-launch-session dbus-launch xmonad
     $HOME/bin/export_x_info.sh
