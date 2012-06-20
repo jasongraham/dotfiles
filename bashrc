@@ -72,7 +72,6 @@ alias la='ls -a'
 alias whoareyou='echo "I'\''m a freaking computer, dumbass."'
 alias gh='ssh homeserver'
 alias gw='ssh -XY newyoyo'
-alias gl='git log --graph --abbrev-commit --pretty=oneline --decorate'
 alias feedfetcher='feedfetcher https://archlinux.org/feeds/news'
 
 # Include this bash functions file
