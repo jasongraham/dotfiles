@@ -5,8 +5,8 @@ URxvt*scrollBar_right: true
 !URxvt.font: xft:monaco:size=10
 URxvt.font: xft:DejaVu Sans Mono:size=10
 
-URxvt.depth: 32
-URxvt.background: rgba:0000/0000/0000/cccc
+URxvt.transparent: true
+URxvt.shading: 20
 
 ! terminal colors ------------------------------------------------------------
 

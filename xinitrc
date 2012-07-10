@@ -10,6 +10,7 @@ fi
 
 xsetroot -cursor_name left_ptr
 xmodmap $HOME/.xmodmap
+
 if [ $HOSTNAME = "jrg-thinkpad" ] ; then
     exec ck-launch-seesion gnome-session
 else
@@ -34,7 +35,6 @@ else
     xset s 0 0
 
     xrdb -merge $HOME/.Xresources
-    xcompmgr -c &
     thunar --daemon &
     # daemonize urxvt
     /usr/bin/urxvtd -q -o -f
