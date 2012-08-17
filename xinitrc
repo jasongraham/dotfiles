@@ -12,7 +12,12 @@ xsetroot -cursor_name left_ptr
 xmodmap $HOME/.xmodmap
 
 if [ $HOSTNAME = "jrg-thinkpad" ] ; then
-    exec ck-launch-seesion gnome-session
+    echo "Nothing to do"
+    # Note: taking care of startup programs within xfce
+    #dropboxd &
+    #thunar --daemon &
+    #xcompmgr &
+    #exec startxfce4
 else
 
     # if gnome-keyring is installed, make it useful
