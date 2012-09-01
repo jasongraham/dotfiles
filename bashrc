@@ -95,3 +95,5 @@ export PATH=$PATH:/home/grahjm2a/bin:/home/grahjm2a/.gem/ruby/1.9.1/bin
 if [ -f $HOME/.reminders ] && [ -x /usr/bin/remind ]; then
     /usr/bin/remind $HOME/.reminders
 fi
+
+[[ -s "$HOME/.rvm/scripts/rvm" ]] && source "$HOME/.rvm/scripts/rvm"
