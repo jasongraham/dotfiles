@@ -89,7 +89,7 @@ export MOZ_DISABLE_PANGO=1
 
 export EDITOR=vim
 
-export PATH=$PATH:/home/grahjm2a/bin:/home/grahjm2a/.gem/ruby/1.9.1/bin
+export PATH=/home/grahjm2a/bin:$PATH:/home/grahjm2a/.gem/ruby/1.9.1/bin
 
 # Spit out reminders when I open a terminal, if there is a reminders file
 if [ -f $HOME/.reminders ] && [ -x /usr/bin/remind ]; then
