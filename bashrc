@@ -26,6 +26,11 @@ case "$TERM" in
         TERM=xterm-256color
         color_prompt=yes
         ;;
+    rxvt*) # Taking care of rxvt in case where remote system doesn't have it
+        if [ -z /usr/bin/urxvt ]; then
+            TERM=xterm-256color
+            color_prompt=yes
+        fi
 esac
 
 # uncomment for a colored prompt, if the terminal has the capability; turned
