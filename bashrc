@@ -55,9 +55,9 @@ PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 30 ]; then CurDi
 # Note: For some reason, \$ isn't automatically putting a '$' or '#' depending on user.
 #       Performed manually below, and differentiating colors.
 if [ $UID -eq 0 ] ; then
-    PS1="\[\033[01;31m\]\h\[\033[01;34m\][\$CurDir]\[\033[01;31m\]#\[\033[00m\] "
+    PS1="\[\033[00;31m\]\h\[\033[00;34m\][\$CurDir]\[\033[00;31m\]#\[\033[00m\] "
 else
-    PS1="\[\033[01;32m\]\h\[\033[01;34m\][\$CurDir]\[\033[01;32m\]$\[\033[00m\] "
+    PS1="\[\033[00;32m\]\h\[\033[00;34m\][\$CurDir]\[\033[00;32m\]$\[\033[00m\] "
 fi
 
 # Bash Completion under sudo and man
