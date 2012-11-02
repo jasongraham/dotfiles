@@ -6,11 +6,11 @@ URxvt*scrollBar_right: true
 URxvt*font: xft:DejaVu Sans Mono:size=10
 URxvt*boldFont: xft:DejaVu Sans Mono:size=10
 
-URxvt*transparent: false
+!URxvt*transparent: false
 !URxvt*shading: 20
 
 URxvt*underlineColor: yellow
-URxvt*depth: 32
+!URxvt*depth: 32
 
 URxvt*loginShell: true
 URxvt*borderless: 1
