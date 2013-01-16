@@ -100,3 +100,4 @@ if [ -f $HOME/.reminders ] && [ -x /usr/bin/remind ]; then
 fi
 
 PATH=$PATH:$HOME/.rvm/bin # Add RVM to PATH for scripting
+PATH=$PATH:$HOME/.cabal/bin # Add cabal binaries to PATH
