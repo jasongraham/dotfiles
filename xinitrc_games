@@ -1,0 +1,24 @@
+#!/bin/bash
+
+xsetroot -cursor_name left_ptr
+numlockx
+
+if [ $HOSTNAME = "jrg-thinkpad" ] ; then
+    echo "Nothing to do"
+    # Note: taking care of startup programs within xfce
+    #dropboxd &
+    #thunar --daemon &
+    #xcompmgr &
+    #exec startxfce4
+else
+
+    # turn off energy star feature of screen
+    xset -dpms
+
+    # turn off screen saver
+    xset s 0 0
+
+    xrdb -merge $HOME/.Xresources
+    tint2 &
+    exec openbox-session
+fi
