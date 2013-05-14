@@ -19,7 +19,7 @@ fi
 
 if [ -L $HOME/.config/systemd/user/default.target ] ; then
     # Systemd user session is setup, use that
-    /bin/systemd --user
+    /usr/lib/systemd/systemd --user
 
 else # No systemd user session available
     xsetroot -cursor_name left_ptr
