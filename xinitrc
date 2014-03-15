@@ -35,7 +35,7 @@ else # No systemd user session available
     # daemonize urxvt
     /usr/bin/urxvtd -q -o -f
     $HOME/bin/wallpaper.sh &
-    redshift -l 46.7:-117.2 -t 5900:4800 &
+    redshift -l 46.7:-117.2 -t 4800:3700 &
     $HOME/bin/export_x_info.sh
     exec xmonad
 fi
