@@ -60,6 +60,14 @@ else
     PS1="\[\033[00;32m\]\h\[\033[00;34m\][\$CurDir]\[\033[00;32m\]$\[\033[00m\] "
 fi
 
+function stopwatch(){
+    local date1=`date +%s`
+    while true; do
+        echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r"
+        sleep 0.2
+    done
+}
+
 # Bash Completion under sudo and man
 complete -cf sudo
 complete -cf man
