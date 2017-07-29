@@ -37,7 +37,7 @@ else # No systemd user session available
     # daemonize urxvt
     /usr/bin/urxvtd -q -o -f
     $HOME/bin/wallpaper.sh &
-    redshift -l 46.7:-117.2 -t 4800:3700 &
+    redshift -l 46.7:-117.2 -t 4800:3700 -b 1.0:0.85 &
     $HOME/bin/export_x_info.sh
     case $session in
         /usr/bin/openbox-session )
