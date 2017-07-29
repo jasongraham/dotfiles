@@ -107,4 +107,12 @@ if [ -f $HOME/.reminders ] && [ -x /usr/bin/remind ]; then
     /usr/bin/remind $HOME/.reminders
 fi
 
-PATH=$PATH:$HOME/.cabal/bin # Add cabal binaries to PATH
+# chruby
+if [ -d /usr/share/chruby ] ; then
+    source /usr/share/chruby/chruby.sh
+    source /usr/share/chruby/auto.sh
+fi
+
+# rust
+PATH=$HOME/.cargo/bin:$PATH
+RUST_SRC_PATH=$HOME/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
