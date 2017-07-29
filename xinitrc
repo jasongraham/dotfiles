@@ -17,6 +17,8 @@ if [ -x /usr/bin/gnome-keyring-daemon ] ; then
     export GNOME_KEYRING_PID
 fi
 
+session=${1:-xmonad}
+
 if [ -L $HOME/.config/systemd/user/default.target ] ; then
     # Systemd user session is setup, use that
     /usr/lib/systemd/systemd --user
@@ -37,5 +39,11 @@ else # No systemd user session available
     $HOME/bin/wallpaper.sh &
     redshift -l 46.7:-117.2 -t 4800:3700 &
     $HOME/bin/export_x_info.sh
-    exec xmonad
+    case $session in
+        /usr/bin/openbox-session )
+            tint2 &
+            exec openbox-session ;;
+        * )
+            exec xmonad ;;
+    esac
 fi
