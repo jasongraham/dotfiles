@@ -1,0 +1,24 @@
+[user]
+    name = Jason Graham
+    email = {{ .email }}
+[color]
+    ui = true
+[core]
+    editor = nvim
+    autocrlf = input
+    pager = delta
+[merge]
+    tool = nvim -d
+[init]
+	defaultBranch = master
+[alias]
+    lol = log --graph --decorate --oneline
+    lola = log --graph --decorate --oneline --all
+    st = status -sb
+[delta]
+    syntax-theme = gruvbox-dark
+    plus-color = "#98971a"
+    minus-color = "#cc241d"
+    line-numers = true
+[diff]
+    external = difft

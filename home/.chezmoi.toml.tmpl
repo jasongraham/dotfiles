@@ -1,0 +1,38 @@
+{{/* Global variables */}}
+{{- $personal := false -}}
+{{- $sel := false -}}
+
+{{- $osID := .chezmoi.os -}}
+{{- if (and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "id")) -}}
+{{-   $osID = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
+{{- end -}}
+
+{{- $hostname := .chezmoi.hostname -}}
+
+{{- if eq $hostname "jrg-desktop" -}}
+{{-   $personal = true }}
+{{- end -}}
+
+{{- $email := printf "%s@%s" "j.and.w.graham" "gmail.com" -}}
+{{- if $sel -}}
+{{-   $email = printf "%s@%s" "jason_graham" "selinc.com" -}}
+{{- end -}}
+
+[data]
+    email = {{ $email | quote }}
+    personal = {{ $personal | quote }}
+    sel = {{ $sel | quote }}
+    hostname = {{ $hostname | quote }}
+    osid = {{ $osID | quote }}
+
+[edit]
+    command = "nvim"
+
+[diff]
+    command = "difft"
+    args = ["--skip-unchanged", "{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]
+
+[merge]
+    command = "nvim"
+    args = ["-d", "{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Source {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]
+

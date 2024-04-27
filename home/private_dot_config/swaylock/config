@@ -1,0 +1,22 @@
+# Options
+ignore-empty-password
+show-failed-attempts
+fade-in=10
+grace=20
+
+# General
+clock
+indicator-caps-lock
+indicator-idle-visible
+
+# Appearance
+color=222222
+effect-vignette=0.5:0.5
+indicator-radius=100
+indicator-thickness=20
+ring-color=98971a
+ring-wrong-color=fb4934
+inside-wrong-color=cc241d
+key-hl-color=b8bb26
+
+time-effects

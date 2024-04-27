@@ -1,0 +1,100 @@
+#!/bin/bash
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
+
+# If not running interactively, don't do anything
+[ -z "$PS1" ] && return
+
+# don't put duplicate lines in the history. See bash(1) for more options
+# don't overwrite GNU Midnight Commander's setting of `ignorespace'.
+export HISTCONTROL=$HISTCONTROL${HISTCONTROL+,}ignoredups
+# ... or force ignoredups and ignorespace
+export HISTCONTROL=ignoreboth
+
+# append to the history file, don't overwrite it
+shopt -s histappend
+
+# for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
+
+# check the window size after each command and, if necessary,
+# update the values of LINES and COLUMNS.
+shopt -s checkwinsize
+
+# Code found online to truncate the displayed pathway
+PROMPT_COMMAND='DIR=`pwd|sed -e "s!$HOME!~!"`; if [ ${#DIR} -gt 30 ]; then CurDir=${DIR:0:12}...${DIR:${#DIR}-15}; else CurDir=$DIR; fi'
+
+# Note: For some reason, \$ isn't automatically putting a '$' or '#' depending on user.
+#       Performed manually below, and differentiating colors.
+if [ $UID -eq 0 ] ; then
+    PS1="\[\033[00;31m\]\h\[\033[00;34m\][\$CurDir]\[\033[00;31m\]#\[\033[00m\] "
+else
+    PS1="\[\033[00;32m\]\h\[\033[00;34m\][\$CurDir]\[\033[00;32m\]$\[\033[00m\] "
+fi
+
+function stopwatch(){
+    local date1
+    date1=$(date +%s)
+    while true; do
+        echo -ne "$(date -u --date @$((`date +%s` - $date1)) +%H:%M:%S)\r"
+        sleep 0.2
+    done
+}
+
+# Bash Completion under sudo and man
+#complete -cf sudo
+#complete -cf man
+
+# Alias definitions.
+
+# enable color support of ls and also add handy aliases
+if [ -x /usr/bin/eza ]; then
+    alias ls='eza'
+    alias ll='ls -lh --git'
+else
+    alias ls='ls --color=auto'
+    alias ll='ls -l'
+fi
+alias la='ls -a'
+
+alias grep='grep --color=auto'
+alias whoareyou='echo "I'\''m a freaking computer, dumbass."'
+
+[ -x bat ] && alias cat='bat'
+[ -x nvim ] && alias vim='nvim'
+
+# Include this bash functions file
+# Color man pages
+export LESS_TERMCAP_mb=$'\E[01;31m' # begin blinking
+export LESS_TERMCAP_md=$'\E[01;38;5;74m' # begin bold
+export LESS_TERMCAP_me=$'\E[0m' # end mode
+export LESS_TERMCAP_se=$'\E[0m' # end standout-mode
+export LESS_TERMCAP_so=$'\E[38;5;246m' # begin standout-mode - info box
+export LESS_TERMCAP_ue=$'\E[0m' # end underline
+export LESS_TERMCAP_us=$'\E[04;38;5;146m' # begin underline
+
+# Disable Pango in Firefox
+export MOZ_DISABLE_PANGO=1
+
+export EDITOR=vim
+
+[ -f "$HOME"/.dircolors ] && eval "$(dircolors -b "$HOME"/.dircolors)"
+
+# Spit out reminders when I open a terminal, if there is a reminders file
+if [ -f "$HOME"/.reminders ] && [ -x /usr/bin/remind ]; then
+    /usr/bin/remind "$HOME"/.reminders
+fi
+
+export PATH="$HOME"/bin:"$HOME"/.local/bin:"$PATH"
+
+# rust
+if [ -x rustup ]; then
+    export PATH="$HOME"/.cargo/bin:$PATH
+    export RUST_SRC_PATH="$HOME"/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
+fi
+
+if [ -x pyenv ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+fi
