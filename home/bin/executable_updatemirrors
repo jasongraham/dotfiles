@@ -9,4 +9,3 @@ COUNTRY="United States"
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
 
 reflector -c "$COUNTRY" -l 16 -f 16 -n 5 --sort rate --save /etc/pacman.d/mirrorlist
-

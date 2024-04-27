@@ -6,4 +6,3 @@ keysym Caps_Lock = Escape
 
 add Control = Escape
 add Lock = Caps_Lock
-
