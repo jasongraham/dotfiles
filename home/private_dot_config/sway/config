@@ -23,6 +23,8 @@ set $menu rofi -modi run -show run | xargs swaymsg exec --
 
 set $pw_manager rofi-pass
 
+set $session_manager ~/bin/leave.sh
+
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /usr/share/backgrounds/sway/)
@@ -134,7 +136,7 @@ input * xkb_options caps:swapescape
     # Exit sway (logs you out of your Wayland session)
     # bindsym $mod+Shift+e exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
     # bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
-    bindsym $mod+Shift+q exec wlogout
+    bindsym $mod+Shift+q exec $session_manager
 #
 # Moving around:
 #
