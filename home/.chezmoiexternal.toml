@@ -2,3 +2,5 @@
     type = "git-repo"
     url = "https://github.com/alacritty/alacritty-theme"
     refreshPeriod = "168h"
+    clone = {args = ["--depth=1"]}
+    pull = {args = ["--ff-only"]}
