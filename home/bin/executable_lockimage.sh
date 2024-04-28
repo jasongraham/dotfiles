@@ -7,6 +7,8 @@ readonly BLURVAL="3x2"
 LOCKARGS=""
 IMAGES=""
 
+trap "rm -f $IMAGES" EXIT
+
 for OUTPUT in $(swaymsg -t get_outputs | jq -r '.[].name') ; do
     IMAGE=/tmp/"${OUTPUT}"-lock.png
     grim \
@@ -22,4 +24,3 @@ for OUTPUT in $(swaymsg -t get_outputs | jq -r '.[].name') ; do
 done
 
 swaylock --daemonize $LOCKARGS
-rm $IMAGES

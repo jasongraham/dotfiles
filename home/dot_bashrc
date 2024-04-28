@@ -60,8 +60,8 @@ alias la='ls -a'
 alias grep='grep --color=auto'
 alias whoareyou='echo "I'\''m a freaking computer, dumbass."'
 
-[ -x bat ] && alias cat='bat'
-[ -x nvim ] && alias vim='nvim'
+[ -x /usr/bin/bat ] && alias cat='bat'
+[ -x /usr/bin/nvim ] && alias vim='nvim'
 
 # Include this bash functions file
 # Color man pages
@@ -88,7 +88,7 @@ fi
 export PATH="$HOME"/bin:"$HOME"/.local/bin:"$PATH"
 
 # rust
-if [ -x rustup ]; then
+if [ -d $HOME/.cargo/bin ]; then
     export PATH="$HOME"/.cargo/bin:$PATH
     export RUST_SRC_PATH="$HOME"/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
 fi
