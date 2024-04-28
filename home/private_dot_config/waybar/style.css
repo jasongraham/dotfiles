@@ -12,10 +12,27 @@
 
 * {
 	border: none;
-	border-radius: 10;
+	border-radius: 10px;
     font-family: Monospace;
-	font-size: 15px;
+	font-size: 16px;
 	min-height: 10px;
+}
+
+#mode,
+#window,
+#workspaces,
+#network,
+#pulseaudio,
+#clock,
+#memory,
+#cpu,
+#tray {
+	margin-top: 5px;
+	margin-left: 8px;
+	padding-left: 10px;
+	padding-right: 10px;
+	margin-bottom: 0px;
+	transition: none;
 }
 
 window#waybar {
@@ -32,49 +49,29 @@ window#waybar.hidden {
 }
 
 #mode {
-	margin-top: 5px;
-	margin-left: 8px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	transition: none;
     background-color: @red;
     color: @fg;
 }
 
 #window {
-	margin-top: 5px;
-	margin-left: 8px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	transition: none;
 	background-color: @bg;
     color: @fg;
 }
 
 #workspaces {
-	margin-top: 5px;
-	margin-left: 12px;
+	padding-left: 0px;
+	padding-right: 0px;
 	font-size: 4px;
-	margin-bottom: 0px;
-	border-radius: 10px;
 	background: @bg;
-	transition: none;
 }
 
 #workspaces button {
-	transition: none;
 	color: @blue;
 	background: transparent;
-	font-size: 16px;
 	border-radius: 2px;
 }
 
 #workspaces button.occupied {
-	transition: none;
 	color: @red;
 	background: transparent;
 	font-size: 4px;
@@ -86,7 +83,6 @@ window#waybar.hidden {
 }
 
 #workspaces button:hover {
-	transition: none;
 	box-shadow: inherit;
 	text-shadow: inherit;
     border-color: @bg;
@@ -101,25 +97,11 @@ window#waybar.hidden {
 }
 
 #network {
-	margin-top: 5px;
-	margin-left: 8px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	transition: none;
 	color: @bg;
 	background: @purple;
 }
 
 #pulseaudio {
-	margin-top: 5px;
-	margin-left: 8px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	transition: none;
 	color: @bg;
 	background: @yellow;
 }
@@ -132,47 +114,19 @@ window#waybar.hidden {
 }
 
 #clock {
-	margin-top: 5px;
-	margin-left: 8px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-bottom: 0px;
-	border-radius: 10px;
-	transition: none;
 	color: @bg;
 	background: @aqua;
 }
 
 #memory {
-	margin-top: 5px;
-	margin-left: 8px;
-	padding-left: 10px;
-	margin-bottom: 0px;
-	padding-right: 10px;
-	border-radius: 10px;
-	transition: none;
 	color: @bg;
 	background: @purple;
 }
 #cpu {
-	margin-top: 5px;
-	margin-left: 8px;
-	padding-left: 10px;
-	margin-bottom: 0px;
-	padding-right: 10px;
-	border-radius: 10px;
-	transition: none;
 	color: @bg;
 	background: @blue;
 }
 #tray {
-	margin-top: 5px;
-	margin-left: 8px;
-	padding-left: 10px;
-	margin-bottom: 0px;
-	padding-right: 10px;
-	border-radius: 10px;
-	transition: none;
 	color: @bg;
 	background: @fg;
 }
