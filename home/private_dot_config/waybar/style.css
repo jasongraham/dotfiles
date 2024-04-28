@@ -11,11 +11,11 @@
 @define-color orange #fe8019;
 
 * {
-	border: none;
-	border-radius: 10px;
-    font-family: Monospace;
-	font-size: 16px;
-	min-height: 10px;
+  border: none;
+  border-radius: 10px;
+  font-family: Monospace;
+  font-size: 16px;
+  min-height: 10px;
 }
 
 #mode,
@@ -27,106 +27,106 @@
 #memory,
 #cpu,
 #tray {
-	margin-top: 5px;
-	margin-left: 8px;
-	padding-left: 10px;
-	padding-right: 10px;
-	margin-bottom: 0px;
-	transition: none;
+  margin-top: 5px;
+  margin-left: 8px;
+  padding-left: 10px;
+  padding-right: 10px;
+  margin-bottom: 0px;
+  transition: none;
 }
 
 window#waybar {
-	background: transparent;
+  background: transparent;
 }
 
 window#waybar.hidden {
-	opacity: 0.2;
+  opacity: 0.2;
 }
 
 #waybar.empty #window {
-    color: transparent;
-    background-color: transparent;
+  color: transparent;
+  background-color: transparent;
 }
 
 #mode {
-    background-color: @red;
-    color: @fg;
+  background-color: @red;
+  color: @fg;
 }
 
 #window {
-	background-color: @bg;
-    color: @fg;
+  background-color: @bg;
+  color: @fg;
 }
 
 #workspaces {
-	padding-left: 0px;
-	padding-right: 0px;
-	font-size: 4px;
-	background: @bg;
+  padding-left: 0px;
+  padding-right: 0px;
+  font-size: 4px;
+  background: @bg;
 }
 
 #workspaces button {
-	color: @blue;
-	background: transparent;
-	border-radius: 2px;
+  color: @blue;
+  background: transparent;
+  border-radius: 2px;
 }
 
 #workspaces button.occupied {
-	color: @red;
-	background: transparent;
-	font-size: 4px;
+  color: @red;
+  background: transparent;
+  font-size: 4px;
 }
 
 #workspaces button.focused {
-	color: @aqua;
-    border-color: @aqua;
+  color: @aqua;
+  border-color: @aqua;
 }
 
 #workspaces button:hover {
-	box-shadow: inherit;
-	text-shadow: inherit;
-    border-color: @bg;
-    background-color: @aqua;
-    color: @bg;
+  box-shadow: inherit;
+  text-shadow: inherit;
+  border-color: @bg;
+  background-color: @aqua;
+  color: @bg;
 }
 
 #workspaces button.focused:hover {
-    border-color: @bg;
-    background-color: @aqua;
-    color: @bg;
+  border-color: @bg;
+  background-color: @aqua;
+  color: @bg;
 }
 
 #network {
-	color: @bg;
-	background: @purple;
+  color: @bg;
+  background: @purple;
 }
 
 #pulseaudio {
-	color: @bg;
-	background: @yellow;
+  color: @bg;
+  background: @yellow;
 }
 
 @keyframes blink {
-    to {
-        background-color: @orange;
-        color: @bg;
-    }
+  to {
+    background-color: @orange;
+    color: @bg;
+  }
 }
 
 #clock {
-	color: @bg;
-	background: @aqua;
+  color: @bg;
+  background: @aqua;
 }
 
 #memory {
-	color: @bg;
-	background: @purple;
+  color: @bg;
+  background: @purple;
 }
 #cpu {
-	color: @bg;
-	background: @blue;
+  color: @bg;
+  background: @blue;
 }
 #tray {
-	color: @bg;
-	background: @fg;
+  color: @bg;
+  background: @fg;
 }
