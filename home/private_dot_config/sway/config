@@ -273,9 +273,9 @@ default_floating_border pixel
 hide_edge_borders smart
 smart_borders on
 
-smart_gaps on
+smart_gaps inverse_outer
 gaps inner 5
-gaps outer -1
+gaps outer 0
 
 exec mako
 
