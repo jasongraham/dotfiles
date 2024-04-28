@@ -1,14 +1,14 @@
 /* Gruvbox Dark text color scheme */
-@define-color fg     #ebdbb2;
+@define-color fg     #ddc7a1;
 @define-color bg     #282828;
-@define-color red    #db4934;
+@define-color red    #ea6962;
 @define-color gray   #928374;
 @define-color purple #d3869b;
-@define-color aqua   #8ec07c;
-@define-color blue   #83a598;
-@define-color green  #b8bb26;
-@define-color yellow #fabd2f;
-@define-color orange #fe8019;
+@define-color aqua   #89b482;
+@define-color blue   #7daea3;
+@define-color green  #a9b665;
+@define-color yellow #d8a657;
+@define-color orange #e78a4e;
 
 * {
   border: none;
