@@ -15,10 +15,6 @@
         }
     },
 
-    "sway/mode": {
-        "format": "<span style=\"italic\">{}</span>"
-    },
-
     "sway/window": {
         "tooltip": false,
         "icon": true,
