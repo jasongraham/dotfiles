@@ -10,7 +10,7 @@ IMAGES=""
 trap "rm -f $IMAGES" EXIT
 
 for OUTPUT in $(swaymsg -t get_outputs | jq -r '.[].name') ; do
-    IMAGE=/tmp/"${OUTPUT}"-lock.png
+    IMAGE=$(mktemp -u --suffix=.png)
     grim \
         -o "${OUTPUT}" \
         -l 1 \
