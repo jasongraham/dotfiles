@@ -1,13 +1,20 @@
 [".config/alacritty/themes"]
-    type = "git-repo"
-    url = "https://github.com/alacritty/alacritty-theme"
-    refreshPeriod = "168h"
-    clone = {args = ["--depth=1"]}
-    pull = {args = ["--ff-only"]}
+type = "git-repo"
+url = "https://github.com/alacritty/alacritty-theme"
+refreshPeriod = "168h"
+clone = { args = ["--depth=1"] }
+pull = { args = ["--ff-only"] }
 
 [".local/share/fzf-git.sh"]
-    type = "git-repo"
-    url = "https://github.com/junegunn/fzf-git.sh"
-    refreshPeriod = "168h"
-    clone = {args = ["--depth=1"]}
-    pull = {args = ["--ff-only"]}
+type = "git-repo"
+url = "https://github.com/junegunn/fzf-git.sh"
+refreshPeriod = "168h"
+clone = { args = ["--depth=1"] }
+pull = { args = ["--ff-only"] }
+
+[".tmux/plugins/tpm"]
+type = "git-repo"
+url = "https://github.com/tmux-plugins/tpm"
+refreshPeriod = "168h"
+clone = { args = ["--depth=1"] }
+pull = { args = ["--ff-only"] }
