@@ -3,7 +3,10 @@
 COUNTRY="United States"
 
 # must be run under sudo
-[ "$UID" != 0 ] && su=sudo
+if [ "$EUID" -ne 0 ] ; then
+    echo "Must be run as root"
+    exit 1
+fi
 
 # backup the current mirror list
 cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup

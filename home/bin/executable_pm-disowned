@@ -1,4 +1,5 @@
-#!/bin/sh
+#!/bin/bash
+# Find files not claimed by any package
 
 tmp=${TMPDIR-/tmp}/pacman-disowned-$UID-$$
 db=$tmp/db

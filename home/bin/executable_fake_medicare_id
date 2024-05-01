@@ -1,4 +1,9 @@
 #!/usr/bin/env python3
+"""
+Give medicare scammers a plausible number when they ask.
+
+https://www.cms.gov/medicare/new-medicare-card/understanding-the-mbi-with-format.pdf
+"""
 
 import random
 
@@ -11,18 +16,20 @@ N = NUMBER
 A = LETTER
 AN = NUMBER + LETTER
 
-ID = "".join([
-  random.choice(C),
-  random.choice(A),
-  random.choice(AN),
-  random.choice(N),
-  random.choice(A),
-  random.choice(AN),
-  random.choice(N),
-  random.choice(A),
-  random.choice(A),
-  random.choice(N),
-  random.choice(N),
-])
+ID = "".join(
+    [
+        random.choice(C),
+        random.choice(A),
+        random.choice(AN),
+        random.choice(N),
+        random.choice(A),
+        random.choice(AN),
+        random.choice(N),
+        random.choice(A),
+        random.choice(A),
+        random.choice(N),
+        random.choice(N),
+    ]
+)
 
 print("-".join((ID[:4], ID[4:7], ID[7:])))

@@ -7,7 +7,7 @@ readonly BLURVAL="3x2"
 LOCKARGS=""
 IMAGES=""
 
-trap "rm -f $IMAGES" EXIT
+trap 'rm -f $IMAGES' EXIT
 
 for OUTPUT in $(swaymsg -t get_outputs | jq -r '.[].name') ; do
     IMAGE=$(mktemp -u --suffix=.png)
@@ -23,4 +23,5 @@ for OUTPUT in $(swaymsg -t get_outputs | jq -r '.[].name') ; do
     IMAGES="${IMAGES} ${IMAGE}"
 done
 
+# shellcheck disable=SC2086
 swaylock --daemonize $LOCKARGS
