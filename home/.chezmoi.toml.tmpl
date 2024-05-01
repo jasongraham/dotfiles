@@ -1,6 +1,7 @@
 {{/* Global variables */}}
 {{- $personal := false -}}
 {{- $sel := false -}}
+{{- $headless := false -}}
 
 {{- $osID := .chezmoi.os -}}
 {{- if (and (eq .chezmoi.os "linux") (hasKey .chezmoi.osRelease "id")) -}}
@@ -9,8 +10,19 @@
 
 {{- $hostname := .chezmoi.hostname -}}
 
+{{- if eq .chezmoi.os "linux" -}}
+{{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
+{{-     $headless = true -}}
+{{-   end -}}
+{{- end -}}
+
+{{/* List personal computers */}}
 {{- if eq $hostname "jrg-desktop" -}}
 {{-   $personal = true }}
+{{- end -}}
+
+{{- if hasSuffix ".ad.selinc.com" .chezmoi.fqdnHostname -}}
+{{-   $sel = true -}}
 {{- end -}}
 
 {{- $email := printf "%s@%s" "j.and.w.graham" "gmail.com" -}}
@@ -20,10 +32,12 @@
 
 [data]
     email = {{ $email | quote }}
-    personal = {{ $personal | quote }}
-    sel = {{ $sel | quote }}
     hostname = {{ $hostname | quote }}
     osid = {{ $osID | quote }}
+
+    headless = {{ $headless }}
+    personal = {{ $personal }}
+    sel = {{ $sel }}
 
 [edit]
     command = "nvim"
