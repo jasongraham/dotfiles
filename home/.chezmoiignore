@@ -14,14 +14,14 @@
 bin/leave.sh
 bin/lockimage.sh
 bin/lofi-yt
-{{- end -}}
+{{- end }}
 
-{{- if ne .osid "linux-arch" -}}
+{{ if ne .osid "linux-arch" -}}
 bin/pm-disowned
 bin/updatemirrors
-{{- end -}}
+{{- end }}
 
-{{- if not .personal -}}
+{{ if not .personal -}}
 bin/fake_medicare_id
 bin/lofi-yt
 {{- end -}}

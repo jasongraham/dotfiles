@@ -37,7 +37,7 @@ function stopwatch(){
 # Alias definitions.
 
 # enable color support of ls and also add handy aliases
-if [ -x /usr/bin/eza ]; then
+if [[ $(command -v eza) ]]; then
     alias ls='eza'
     alias ll='ls -lh --git'
 else
@@ -49,8 +49,9 @@ alias la='ls -a'
 alias grep='grep --color=auto'
 alias whoareyou='echo "I'\''m a freaking computer, dumbass."'
 
-[ -x /usr/bin/bat ] && alias cat='bat'
-[ -x /usr/bin/nvim ] && alias vim='nvim'
+[[ $(command -v batcat) ]] && alias bat='batcat'
+[[ $(command -v bat) ]] && alias cat='bat'
+[[ $(command -v nvim) ]] && alias vim='nvim'
 
 # Include this bash functions file
 # Color man pages
@@ -70,7 +71,7 @@ export EDITOR=vim
 [ -f "$HOME"/.dircolors ] && eval "$(dircolors -b "$HOME"/.dircolors)"
 
 # Spit out reminders when I open a terminal, if there is a reminders file
-if [ -f "$HOME"/.reminders ] && [ -x /usr/bin/remind ]; then
+if [ -f "$HOME"/.reminders ] && [[ $(command -v remind) ]]; then
     /usr/bin/remind "$HOME"/.reminders
 fi
 
@@ -82,18 +83,30 @@ if [ -d "$HOME"/.cargo/bin ]; then
     export RUST_SRC_PATH="$HOME"/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
 fi
 
-if [ -x /usr/bin/pyenv ]; then
+if [ "$(command -v pyenv)" ]; then
     export PYENV_ROOT="$HOME/.pyenv"
     command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
     eval "$(pyenv init -)"
 fi
 
-[ -x /usr/bin/starship ] && eval "$(starship init bash)"
+[[ $(command -v starship) ]] && eval "$(starship init bash)"
 
-if [ -x /usr/bin/fzf ]; then
-    eval "$(fzf --bash)"
+# Provide 2 version strings, and check that
+# the first is LTE than the second
+verlte() {
+    printf '%s\n' "$1" "$2" | sort -C -V
+}
 
-    if [ -x /usr/bin/fd ]; then
+if [[ $(command -v fzf) ]]; then
+    if verlte "0.48.0" "$(fzf --version | cut -d ' ' -f1)" ; then
+        # fzf supports this with versions starting at 0.48.0
+        eval "$(fzf --bash)"
+    else
+        source /usr/share/bash-completion/completions/fzf
+        source /usr/share/doc/fzf/examples/key-bindings.bash
+    fi
+
+    if [[ $(command -v fd) ]]; then
         export FZF_DEFAULT_COMMAND="fd --hidden --strip-cwd-prefix --exclude .git"
         export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
         export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type=d"
@@ -107,7 +120,7 @@ if [ -x /usr/bin/fzf ]; then
         }
     fi
 
-    if [ -x /usr/bin/eza ] && [ -x /usr/bin/eza ]; then
+    if [[ $(command -v eza) ]] && [[ $(command -v bat) ]]; then
         show_file_or_dir_preview="if [ -d {} ]; then eza --tree --color=always {} | head -200; else bat -n --color=always --line-range :500 {}; fi"
         show_file_tree='eza --tree --color=always {} | head -200'
 

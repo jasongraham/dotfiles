@@ -45,6 +45,7 @@
 [diff]
     command = "difft"
     args = ["--skip-unchanged", "{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]
+    exclude = ["scripts"]
 
 [merge]
     command = "nvim"
