@@ -1,7 +1,8 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/bash
 {{   if eq .osid "linux-arch" -}}
-sudo pacman -Syu {{- range .packages.linux.arch }} {{ . -}} {{- end }}
+sudo pacman -Syu --needed --noconfirm
+{{-     range .packages.linux.arch }} {{ . -}} {{- end }}
 {{-  end -}}
 
 {{- if eq .osid "linux-ubuntu" -}}
