@@ -24,5 +24,11 @@
     plus-color = "#98971a"
     minus-color = "#cc241d"
     line-numers = true
+[interactive]
+    diffFilter = delta --color-only
 [diff]
+{{- if .headless }}
+    colorMoved = default
+{{- else }}
     external = difft
+{{- end -}}

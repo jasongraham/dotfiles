@@ -42,10 +42,12 @@
 [edit]
     command = "nvim"
 
+{{- if ne (.chezmoi.osRelease.id | lower) "ubuntu" }}
 [diff]
     command = "difft"
     args = ["--skip-unchanged", "{{ "{{" }} .Destination {{ "}}" }}", "{{ "{{" }} .Target {{ "}}" }}"]
     exclude = ["scripts"]
+{{- end }}
 
 [merge]
     command = "nvim"
