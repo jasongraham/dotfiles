@@ -19,9 +19,11 @@ bin/lofi-yt
 {{ if ne .osid "linux-arch" -}}
 bin/pm-disowned
 bin/updatemirrors
+bin/pkgclean.sh
 {{- end }}
 
 {{ if not .personal -}}
 bin/fake_medicare_id
 bin/lofi-yt
+bin/update_grub.sh
 {{- end -}}
