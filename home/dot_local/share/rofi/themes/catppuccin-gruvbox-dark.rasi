@@ -9,7 +9,7 @@
     grey: #928374;
 
     width: 360;
-    font: "JetBrainsMono Nerd Font 12";
+    font: "FiraCode Nerd Font 12";
 }
 
 element-text, element-icon , mode-switcher {
