@@ -1,6 +1,6 @@
 return {
 	"nvim-lualine/lualine.nvim",
-	dependencies = { "nvim-tree/nvim-web-devicons" },
+	dependencies = { "nvim-tree/nvim-web-devicons", "arkav/lualine-lsp-progress" },
 	config = function()
 		local lualine = require("lualine")
 		local lazy_status = require("lazy.status") -- to configure lazy pending updates count
@@ -8,8 +8,13 @@ return {
 		lualine.setup({
 			options = {
 				theme = "gruvbox-material",
+				globalstatus = true,
 			},
 			sections = {
+				lualine_c = {
+					{ "filename" },
+					{ "lsp_progress" },
+				},
 				lualine_x = {
 					{
 						lazy_status.updates,
@@ -21,6 +26,10 @@ return {
 					{ "filetype" },
 				},
 			},
+			tabline = {
+				lualine_a = { "buffers" },
+			},
+			extensions = { "lazy", "mason", "trouble" },
 		})
 	end,
 }
