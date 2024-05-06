@@ -1,12 +1,12 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/bash
 {{   if eq .osid "linux-arch" -}}
-sudo pacman -Syu --needed --noconfirm
+sudo pacman -Syu --needed
 {{-     range .packages.linux.arch }} {{ . -}} {{- end }}
 {{-  end -}}
 
 {{- if eq .osid "linux-ubuntu" -}}
-sudo apt-get update && sudo apt-get install -y
+sudo apt-get update && sudo apt-get install
 {{-     range .packages.linux.ubuntu }} {{ . -}} {{- end }}
 {{-   end }}
 
