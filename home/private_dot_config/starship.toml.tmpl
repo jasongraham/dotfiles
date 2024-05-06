@@ -2,15 +2,6 @@
 
 "$schema" = 'https://starship.rs/config-schema.json'
 
-[character]
-disabled = false
-success_symbol = '[➜](bold fg:color_green)'
-error_symbol = '[✗](bold fg:color_red)'
-vimcmd_symbol = '[V](bold fg:color_green)'
-vimcmd_replace_one_symbol = '[V](bold fg:color_purple)'
-vimcmd_replace_symbol = '[V](bold fg:color_purple)'
-vimcmd_visual_symbol = '[V](bold fg:color_yellow)'
-
 {{ if .headless -}}
 
 [git_commit]
@@ -398,3 +389,12 @@ format = '[[  $time ](fg:color_fg1 bg:color_bg1)]($style)'
 disabled = false
 
 {{- end }}
+
+[character]
+disabled = false
+success_symbol = '[➜](bold fg:color_green)'
+error_symbol = '[✗](bold fg:color_red)'
+vimcmd_symbol = '[V](bold fg:color_green)'
+vimcmd_replace_one_symbol = '[V](bold fg:color_purple)'
+vimcmd_replace_symbol = '[V](bold fg:color_purple)'
+vimcmd_visual_symbol = '[V](bold fg:color_yellow)'
