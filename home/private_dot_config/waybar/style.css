@@ -1,6 +1,8 @@
 /* Gruvbox Dark text color scheme */
-@define-color fg     #ddc7a1;
-@define-color bg     #282828;
+@define-color fg0    #d4be98;
+@define-color fg1    #ddc7a1;
+@define-color bg0    #1d2021;
+@define-color bg1    #282828;
 @define-color red    #ea6962;
 @define-color gray   #928374;
 @define-color purple #d3869b;
@@ -50,19 +52,19 @@ window#waybar.hidden {
 
 #mode {
   background-color: @red;
-  color: @fg;
+  color: @fg0;
 }
 
 #window {
-  background-color: @bg;
-  color: @fg;
+  background-color: @bg0;
+  color: @fg0;
 }
 
 #workspaces {
   padding-left: 0px;
   padding-right: 0px;
   font-size: 4px;
-  background: @bg;
+  background: @bg0;
 }
 
 #workspaces button {
@@ -85,48 +87,57 @@ window#waybar.hidden {
 #workspaces button:hover {
   box-shadow: inherit;
   text-shadow: inherit;
-  border-color: @bg;
+  border-color: @bg0;
   background-color: @aqua;
-  color: @bg;
+  color: @bg0;
 }
 
 #workspaces button.focused:hover {
-  border-color: @bg;
+  border-color: @bg0;
   background-color: @aqua;
-  color: @bg;
+  color: @bg0;
 }
 
 #network {
-  color: @bg;
+  color: @bg0;
   background: @purple;
 }
 
 #pulseaudio {
-  color: @bg;
+  color: @bg0;
   background: @yellow;
 }
 
 @keyframes blink {
   to {
     background-color: @orange;
-    color: @bg;
+    color: @bg0;
   }
 }
 
 #clock {
-  color: @bg;
+  color: @bg0;
   background: @aqua;
 }
 
 #memory {
-  color: @bg;
+  color: @bg0;
   background: @purple;
 }
 #cpu {
-  color: @bg;
+  color: @bg0;
   background: @blue;
 }
 #tray {
-  color: @bg;
-  background: @fg;
+  color: @bg0;
+  background: @fg0;
+}
+
+tooltip label {
+  color: @fg1;
+}
+
+tooltip {
+  background-color: @bg1;
+  border-color: @fg1;
 }
