@@ -82,10 +82,10 @@ exec swaymsg focus output DP-2
 # resumed. It will also lock your screen before your computer goes to sleep.
 
 exec swayidle -w \
-         timeout 600 'lockimage.sh' \
+         timeout 600 '~/bin/lockimage.sh' \
          timeout 900 'swaymsg "output * dpms off"' \
          resume 'swaymsg "output * dpms on"' \
-         before-sleep 'lockimage.sh'
+         before-sleep '~/bin/lockimage.sh'
 
 ### Input configuration
 #
