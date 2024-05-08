@@ -5,6 +5,7 @@
 .config/profile-cleaner.conf
 .config/psd
 .config/rofi
+.config/rofi-pass
 .config/sway
 .config/swaylock
 .config/waybar
@@ -26,4 +27,5 @@ bin/pkgclean.sh
 bin/fake_medicare_id
 bin/lofi-yt
 bin/update_grub.sh
+.config/rofi-pass
 {{- end -}}
