@@ -281,10 +281,18 @@ gaps outer 0
 
 exec mako
 
+# Screen printing
 exec wlsunset -l 46.7 -L -117.2 -T 4800 -t 3700
+
+# Wallpaper daemon
 exec wpaperd -d
 
 # Set a primary monitor for Wine applications
 exec_always xrandr --output XWAYLAND1 --primary
+
+# Set up layout manager, mimic master/stack layout
+exec_always autotiling \
+        --limit 2 \
+        --splitwidth 0.8
 
 include /etc/sway/config.d/*
