@@ -1,6 +1,8 @@
 #!/bin/bash
 # Lofi girl music stream
 
+set -eu -o pipefail
+
 URL="https://www.youtube.com/watch?v=jfKfPfyJRdk"
 VOLUME=40
 

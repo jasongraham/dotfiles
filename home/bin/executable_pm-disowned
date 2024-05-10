@@ -1,6 +1,8 @@
 #!/bin/bash
 # Find files not claimed by any package
 
+set -eu -o pipefail
+
 tmp=${TMPDIR-/tmp}/pacman-disowned-$UID-$$
 db=$tmp/db
 fs=$tmp/fs

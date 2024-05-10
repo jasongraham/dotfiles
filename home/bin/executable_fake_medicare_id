@@ -8,8 +8,8 @@ https://www.cms.gov/medicare/new-medicare-card/understanding-the-mbi-with-format
 import random
 
 
-NUMBER = [str(n) for n in (range(10))]
-LETTER = [c for c in "ACDEFGHJKMNPQRTUVWXY"]  # not SLOIBZ
+NUMBER = "0123456789"
+LETTER = "ACDEFGHJKMNPQRTUVWXY"  # not SLOIBZ
 
 C = NUMBER[1:]  # not 0
 N = NUMBER

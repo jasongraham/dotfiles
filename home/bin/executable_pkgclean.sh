@@ -2,9 +2,7 @@
 
 # Run pkgcacheclean on all dirs under /var/cache/pacman
 
-set -o errexit
-set -o pipefail
-set -o nounset
+set -eu -o pipefail
 
 if [ "$EUID" -ne 0 ]; then
     echo "Please run as root"

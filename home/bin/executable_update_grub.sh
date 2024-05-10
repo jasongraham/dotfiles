@@ -3,9 +3,7 @@
 # This file contains the appropriate commands to update the grub installation
 # on jrg-desktop
 
-set -o errexit
-set -o pipefail
-set -o nounset
+set -eu -o pipefail
 
 if [ "$EUID" -ne 0 ]; then
     echo "Please run as root"

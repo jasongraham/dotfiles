@@ -5,7 +5,7 @@ set -eu -o pipefail
 
 choice=$(printf "Lock\nLogout\nSuspend\nReboot\nShutdown" | rofi -dmenu -i)
 if [[ $choice == "Lock" ]];then
-    swaymsg exec $HOME/bin/lockimage.sh
+    swaymsg exec "$HOME/bin/lockimage.sh"
 elif [[ $choice == "Logout" ]];then
     swaymsg exit
 elif [[ $choice == "Suspend" ]];then
