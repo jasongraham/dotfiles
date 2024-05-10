@@ -30,3 +30,4 @@ packages:
       - "ripgrep"
       - "rofi-wayland"
       - "starship"
+      - "zoxide"
