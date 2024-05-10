@@ -43,9 +43,10 @@
         "format-alt": "{:%a %b %d %Y %I:%M%p}",
     },
     "cpu": {
-        "interval": 1,
-        "format": " {:6}%",
-        "max-length": 10,
+        "interval": 5,
+        "format": "{icon0}{icon1}{icon2}{icon3}{icon4}{icon5}{icon6}{icon7}{icon8}{icon9}{icon10}{icon11} {usage:3}%",
+        "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
+        "max-length": 18,
         "tooltip-format": "{usage0:3} {usage1:3} {usage2:3} {usage3:3} {usage4:3} {usage5:3} {usage6:3} {usage7:3} {usage8:3} {usage9:3} {usage10:3} {usage11:3}",
     },
     "memory": {
