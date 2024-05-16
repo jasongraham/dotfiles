@@ -1,9 +1,9 @@
 // vim: ft=jsonc
 {
     "layer": "top",
-    "modules-left": ["cpu","memory","sway/workspaces"],
-    "modules-center": ["sway/window"],
-    "modules-right": ["sway/mode","tray","pulseaudio","network","clock"],
+    "modules-left": ["cpu","memory","river/tags"],
+    "modules-center": ["river/window"],
+    "modules-right": ["river/mode","tray","pulseaudio","network","clock"],
 
     "pulseaudio": {
         "tooltip": false,
@@ -16,14 +16,8 @@
         }
     },
 
-    "sway/window": {
-        "tooltip": false,
-        "icon": true,
-        "icon-size": 18,
+    "river/window": {
         "max-length": 64,
-        "rewrite": {
-            "(.*) — Mozilla Firefox": "$1",
-        }
     },
 
     "network": {
