@@ -10,9 +10,11 @@
     autocrlf = input
     pager = delta
 [merge]
-    tool = nvim -d
+    tool = nvim
+[mergetool]
+    prompt = false
 [init]
-	defaultBranch = master
+    defaultBranch = master
 [alias]
     lol = log --graph --decorate --oneline
     lola = log --graph --decorate --oneline --all
