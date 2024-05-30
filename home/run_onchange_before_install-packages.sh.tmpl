@@ -2,12 +2,18 @@
 #!/bin/bash
 {{   if eq .osid "linux-arch" -}}
 sudo pacman -Syu --needed
-{{-     range .packages.linux.arch }} {{ . -}} {{- end }}
+{{-     range .packages.linux.arch.headless }} {{ . -}} {{- end }}
+{{-     if not .headless -}}
+{{-       range .packages.linux.arch.headed }} {{ . -}} {{- end }}
+{{-     end -}}
 {{-  end -}}
 
 {{- if eq .osid "linux-ubuntu" -}}
 sudo apt-get update && sudo apt-get install
-{{-     range .packages.linux.ubuntu }} {{ . -}} {{- end }}
+{{-     range .packages.linux.ubuntu.headless }} {{ . -}} {{- end }}
+{{-     if not .headless -}}
+{{-       range .packages.linux.ubuntu.headed }} {{ . -}} {{- end }}
+{{-     end -}}
 {{-   end }}
 
 # vim ft: bash

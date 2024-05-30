@@ -4,6 +4,7 @@
 .config/mpv
 .config/profile-cleaner.conf
 .config/psd
+.config/river
 .config/rofi
 .config/rofi-pass
 .config/sway
