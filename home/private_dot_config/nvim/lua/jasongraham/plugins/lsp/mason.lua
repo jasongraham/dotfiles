@@ -32,6 +32,7 @@ return {
 				"ruff",
 				"rust_analyzer",
 				"taplo",
+				"typos_lsp",
 				"yamlls",
 			},
 		})

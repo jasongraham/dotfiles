@@ -131,6 +131,12 @@ return {
 					filetypes = { "toml" },
 				})
 			end,
+			["typos_lsp"] = function()
+				lspconfig["typos_lsp"].setup({
+					capabilities = capabilities,
+					filetypes = { "*" },
+				})
+			end,
 			["yamlls"] = function()
 				lspconfig["yamlls"].setup({
 					capabilities = capabilities,
