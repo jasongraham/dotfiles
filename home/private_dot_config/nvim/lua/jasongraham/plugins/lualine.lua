@@ -4,7 +4,7 @@ return {
 	config = function()
 		local lualine = require("lualine")
 		local lazy_status = require("lazy.status") -- to configure lazy pending updates count
-		--
+
 		lualine.setup({
 			options = {
 				theme = "gruvbox-material",
@@ -27,7 +27,8 @@ return {
 				},
 			},
 			tabline = {
-				lualine_a = { "buffers" },
+				lualine_c = { "buffers" },
+				lualine_x = { "tabs" },
 			},
 			extensions = { "lazy", "mason", "trouble" },
 		})
