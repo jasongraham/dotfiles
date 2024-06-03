@@ -14,6 +14,7 @@ return {
 		"saadparwaiz1/cmp_luasnip", -- for autocompletion
 		"rafamadriz/friendly-snippets", -- useful snippets
 		"onsails/lspkind.nvim", -- vs-code like pictograms
+		"saecki/crates.nvim", -- rust Cargo.toml completions
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -47,6 +48,7 @@ return {
 			sources = cmp.config.sources({
 				{ name = "nvim_lsp" }, -- language server
 				{ name = "luasnip" }, -- snippets
+				{ name = "crates" },
 				{ name = "buffer" }, -- text within current buffer
 				{ name = "path" }, -- file system paths
 			}),
