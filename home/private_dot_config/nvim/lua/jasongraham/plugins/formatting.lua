@@ -6,13 +6,7 @@ return {
 
 		conform.setup({
 			formatters_by_ft = {
-				css = { "prettier" },
-				graphql = { "prettier" },
-				html = { "prettier" },
-				javascript = { "prettier" },
-				javascriptreact = { "prettier" },
 				json = { "prettier" },
-				liquid = { "prettier" },
 				lua = { "stylua" },
 				markdown = { "prettier" },
 				python = function(bufnr)
@@ -22,10 +16,8 @@ return {
 						return { "isort", "black" }
 					end
 				end,
+				toml = { "taplo" },
 				rust = { "rustfmt" },
-				svelte = { "prettier" },
-				typescript = { "prettier" },
-				typescriptreact = { "prettier" },
 				yaml = { "prettier" },
 			},
 			format_on_save = {

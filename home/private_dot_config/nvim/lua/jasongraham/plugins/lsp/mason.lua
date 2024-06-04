@@ -27,7 +27,6 @@ return {
 			-- list of servers for mason to install
 			ensure_installed = {
 				"bashls",
-				"cssls",
 				"lua_ls",
 				"ruff",
 				"rust_analyzer",
