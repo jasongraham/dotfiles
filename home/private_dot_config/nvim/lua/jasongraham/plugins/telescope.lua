@@ -8,6 +8,7 @@ return {
 		"nvim-tree/nvim-web-devicons",
 		"folke/todo-comments.nvim",
 	},
+	cmd = "Telescope",
 	config = function()
 		local telescope = require("telescope")
 		local actions = require("telescope.actions")
