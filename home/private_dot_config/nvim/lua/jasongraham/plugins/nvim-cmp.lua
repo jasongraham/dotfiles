@@ -15,6 +15,7 @@ return {
 		"rafamadriz/friendly-snippets", -- useful snippets
 		"onsails/lspkind.nvim", -- vs-code like pictograms
 		"saecki/crates.nvim", -- rust Cargo.toml completions
+		"folke/lazydev.nvim",
 	},
 	config = function()
 		local cmp = require("cmp")
@@ -46,6 +47,7 @@ return {
 			}),
 			-- sources for autocompletion
 			sources = cmp.config.sources({
+				{ name = "lazydev", group_index = 0 },
 				{ name = "nvim_lsp" }, -- language server
 				{ name = "luasnip" }, -- snippets
 				{ name = "crates" },

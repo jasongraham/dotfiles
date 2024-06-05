@@ -16,10 +16,5 @@ return {
 		{ "<leader>es", "<cmd>Neotree document_symbols<cr>", "Neotree doc symbols" },
 		{ "<leader>ex", "<cmd>Neotree close<cr>", "Neotree close" },
 	},
-	config = function()
-		local neotree = require("neo-tree")
-		neotree.setup({
-			follow_current_file = { enabled = true },
-		})
-	end,
+	opts = { follow_current_file = { enabled = true } },
 }
