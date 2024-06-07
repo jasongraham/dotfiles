@@ -17,7 +17,8 @@ if ! $(shopt -q login_shell); then
     export PATH=$PATH_TMP:${PATH:1:${#PATH}-2}
     unset PATH_TMP
 fi
-{{- end }}
+
+{{ end -}}
 
 # don't put duplicate lines in the history. See bash(1) for more options
 # don't overwrite GNU Midnight Commander's setting of `ignorespace'.
@@ -42,6 +43,20 @@ function stopwatch(){
         sleep 0.2
     done
 }
+
+# group PATH modifications as early as possible
+export PATH="$HOME"/bin:"$HOME"/.local/bin:"$PATH"
+
+if [ -d "$HOME"/.cargo/bin ]; then
+    export PATH="$HOME"/.cargo/bin:$PATH
+    export RUST_SRC_PATH="$HOME"/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
+fi
+
+if [ "$(command -v pyenv)" ] || [ -d "$HOME"/.pyenv/bin ]; then
+    export PYENV_ROOT="$HOME/.pyenv"
+    command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
+    eval "$(pyenv init -)"
+fi
 
 # Bash Completion under sudo and man
 #complete -cf sudo
@@ -88,8 +103,6 @@ if [ -f "$HOME"/.reminders ] && [[ $(command -v remind) ]]; then
     /usr/bin/remind "$HOME"/.reminders
 fi
 
-export PATH="$HOME"/bin:"$HOME"/.local/bin:"$PATH"
-
 # Start ssh-agent
 if [ "$(command -v ssh-agent)" ] ; then
     if ! pgrep -u "$USER" ssh-agent > /dev/null; then
@@ -98,18 +111,6 @@ if [ "$(command -v ssh-agent)" ] ; then
     if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
         source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
     fi
-fi
-
-# rust
-if [ -d "$HOME"/.cargo/bin ]; then
-    export PATH="$HOME"/.cargo/bin:$PATH
-    export RUST_SRC_PATH="$HOME"/.rustup/toolchains/stable-x86_64-unknown-linux-gnu/lib/rustlib/src/rust/src
-fi
-
-if [ "$(command -v pyenv)" ]; then
-    export PYENV_ROOT="$HOME/.pyenv"
-    command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH"
-    eval "$(pyenv init -)"
 fi
 
 [[ $(command -v starship) ]] && eval "$(starship init bash)"
