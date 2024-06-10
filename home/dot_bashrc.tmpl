@@ -39,7 +39,7 @@ function stopwatch(){
     local date1
     date1=$(date +%s)
     while true; do
-        echo -ne "$(date -u --date @$(($(date +%s) - $date1)) +%H:%M:%S)\r"
+        echo -ne "$(date -u --date @$(($(date +%s) - date1)) +%H:%M:%S)\r"
         sleep 0.2
     done
 }
@@ -106,7 +106,7 @@ fi
 # Start ssh-agent
 if [ "$(command -v ssh-agent)" ] ; then
     if ! pgrep -u "$USER" ssh-agent > /dev/null; then
-    ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
+        ssh-agent -t 1h > "$XDG_RUNTIME_DIR/ssh-agent.env"
     fi
     if [[ ! -f "$SSH_AUTH_SOCK" ]]; then
         source "$XDG_RUNTIME_DIR/ssh-agent.env" >/dev/null
