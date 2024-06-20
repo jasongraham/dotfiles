@@ -1,5 +1,6 @@
 return {
     "nvim-lualine/lualine.nvim",
+    event = "VimEnter",
     dependencies = { "nvim-tree/nvim-web-devicons", "arkav/lualine-lsp-progress" },
     config = function()
         local lualine = require("lualine")
@@ -30,7 +31,7 @@ return {
                 lualine_c = { "buffers" },
                 lualine_x = { "tabs" },
             },
-            extensions = { "lazy", "mason", "trouble" },
+            extensions = { "lazy", "mason", "neo-tree", "quickfix", "trouble" },
         })
     end,
 }
