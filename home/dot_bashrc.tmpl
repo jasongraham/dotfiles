@@ -126,7 +126,7 @@ if [[ $(command -v fzf) ]]; then
         # fzf supports this with versions starting at 0.48.0
         eval "$(fzf --bash)"
     else
-{{- if (eq .chezmoi.osRelease.id "Ubuntu") }}
+{{- if (eq .chezmoi.osRelease.id "ubuntu") }}
         source /usr/share/bash-completion/completions/fzf
         source /usr/share/doc/fzf/examples/key-bindings.bash
 {{- else }}
