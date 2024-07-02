@@ -1,5 +1,8 @@
 {{ if eq .chezmoi.os "linux" -}}
 #!/bin/bash
+
+set -eu -o pipefail
+
 {{   if eq .osid "linux-arch" -}}
 sudo pacman -Syu --needed
 {{-     range .packages.linux.arch.headless }} {{ . -}} {{- end }}
