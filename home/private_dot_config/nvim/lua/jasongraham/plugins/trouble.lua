@@ -1,7 +1,6 @@
 return {
     "folke/trouble.nvim",
     dependencies = { "nvim-tree/nvim-web-devicons", "folke/todo-comments.nvim" },
-    event = { "BufReadPre", "BufNewFile" },
     version = "^3",
     cmd = "Trouble",
     opts = { use_diagnostic_signs = true },
