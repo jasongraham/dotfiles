@@ -37,3 +37,6 @@ swayidle -w \
      resume 'wlopm --on \*' \
      before-sleep "$HOME/bin/lockimage.sh" \
      &
+
+pkill -f wayland-pipewire-idle-inhibit || true
+wayland-pipewire-idle-inhibit &

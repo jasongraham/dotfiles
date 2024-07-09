@@ -23,6 +23,7 @@ packages:
         - "rofi-wayland"
         - "sway"
         - "river"
+        - "wayland-pipewire-idle-inhibit"
       headless:
         - "bat"
         - "difftastic"

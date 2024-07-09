@@ -10,6 +10,7 @@
 .config/sway
 .config/swaylock
 .config/waybar
+.config/wayland-pipewire-idle-inhibit
 .config/wpaperd
 
 .local/share/rofi

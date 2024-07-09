@@ -87,6 +87,9 @@ exec swayidle -w \
          resume 'swaymsg "output * dpms on"' \
          before-sleep '~/bin/lockimage.sh'
 
+# Inhibit idle
+exec wayland-pipewire-idle-inhibit
+
 ### Input configuration
 #
 # Example configuration:
