@@ -4,10 +4,36 @@
 set -eu -o pipefail
 
 {{   if eq .osid "linux-arch" -}}
+# Set up and install aurutils and aurto
+# $1 is the pkg name
+# $2 is the key required, if present
+install_aur_pkg () {
+    local -r PKG=$1
+    local -r GPGKEY=${2:-}
+    local -r TD=$(mktemp -d)
+    cd "$TD"
+    curl -L https://aur.archlinux.org/cgit/aur.git/snapshot/"$PKG".tar.gz | tar xz
+    cd "$PKG"
+    if [ -n "$GPGKEY" ]; then
+        gpg --recv-keys "$GPGKEY"
+    fi
+    makepkg -srci
+}
+
+install_aur_pkg aurutils DBE7D3DD8C81D58D0A13D0E76BC26A17B9B7018A
+install_aur_pkg aurto
+
+{{   if not .headless }}
+{{     range .packages.linux.arch.aur }}
+aurto add {{ . }}
+{{     end }}
+{{-   end }}
+
 sudo pacman -Syu --needed
 {{-     range .packages.linux.arch.headless }} {{ . -}} {{- end }}
 {{-     if not .headless -}}
 {{-       range .packages.linux.arch.headed }} {{ . -}} {{- end }}
+{{-       range .packages.linux.arch.aur }} {{ . -}} {{- end }}
 {{-     end -}}
 {{-  end -}}
 
