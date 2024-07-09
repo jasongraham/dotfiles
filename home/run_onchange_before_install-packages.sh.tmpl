@@ -20,14 +20,20 @@ install_aur_pkg () {
     makepkg -srci
 }
 
-install_aur_pkg aurutils DBE7D3DD8C81D58D0A13D0E76BC26A17B9B7018A
-install_aur_pkg aurto
+if ! pacman -Q aurto &> /dev/null ; then
+    install_aur_pkg aurutils DBE7D3DD8C81D58D0A13D0E76BC26A17B9B7018A
+    install_aur_pkg aurto
+    aurto init
+fi
 
-{{   if not .headless }}
-{{     range .packages.linux.arch.aur }}
-aurto add {{ . }}
-{{     end }}
-{{-   end }}
+if ! grep -q aurto /etc/pacman.conf ; then
+    printf "# aurto repo\nInclude = /etc/pacman.d/aurto" | sudo tee -a /etc/pacman.conf > /dev/null
+fi
+
+{{     if not .headless -}}
+aurto add
+{{-      range .packages.linux.arch.aur }} {{ . -}} {{- end }}
+{{-    end }}
 
 sudo pacman -Syu --needed
 {{-     range .packages.linux.arch.headless }} {{ . -}} {{- end }}
