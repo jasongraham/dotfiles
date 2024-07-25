@@ -1,7 +1,10 @@
 return {
     "nvim-lualine/lualine.nvim",
     event = "VimEnter",
-    dependencies = { "nvim-tree/nvim-web-devicons", "arkav/lualine-lsp-progress" },
+    dependencies = {
+        "nvim-tree/nvim-web-devicons",
+        "arkav/lualine-lsp-progress",
+    },
     config = function()
         local lualine = require("lualine")
         local lazy_status = require("lazy.status") -- to configure lazy pending updates count
@@ -31,7 +34,13 @@ return {
                 lualine_c = { "buffers" },
                 lualine_x = { "tabs" },
             },
-            extensions = { "lazy", "mason", "neo-tree", "quickfix", "trouble" },
+            extensions = {
+                "lazy",
+                "mason",
+                "neo-tree",
+                "quickfix",
+                "trouble",
+            },
         })
     end,
 }
