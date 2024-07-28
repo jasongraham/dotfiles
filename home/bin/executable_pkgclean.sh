@@ -10,6 +10,11 @@ if [ "$EUID" -ne 0 ]; then
 fi
 
 for dir in /var/cache/pacman/* ; do
+    if [[ "$dir" == *aurto ]] ; then
+        echo "####################################################################"
+        echo "Skipping $dir"
+        continue
+    fi
     echo "####################################################################"
     echo "Cleaning $dir"
     pkgcacheclean --verbose --cachedir "$dir"
