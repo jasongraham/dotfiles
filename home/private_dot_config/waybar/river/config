@@ -36,6 +36,11 @@
         "tooltip-format": "<tt><small>{calendar}</small></tt>",
         "format": "{:%I:%M%p}",
         "format-alt": "{:%a %b %d %Y %I:%M%p}",
+        "calendar": {
+            "format": {
+                "today": "<span color='#eeeeee'><b><u>{}</u></b></span>",
+            },
+        },
     },
     "cpu": {
         "interval": 5,
