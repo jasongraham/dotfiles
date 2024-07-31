@@ -37,9 +37,18 @@
         "format": "{:%I:%M%p}",
         "format-alt": "{:%a %b %d %Y %I:%M%p}",
         "calendar": {
+            "mode-mon-col": 3,
+            // Make scrolling down advance the month
+            "on-scroll": -1,
+            "weeks-pos": "left",
             "format": {
                 "today": "<span color='#eeeeee'><b><u>{}</u></b></span>",
             },
+        },
+        "actions": {
+            "on-click-right": "mode",
+            "on-scroll-down": "shift_down",
+            "on-scroll-up": "shift_up",
         },
     },
     "cpu": {
