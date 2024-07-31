@@ -32,6 +32,7 @@ packages:
         - "swaylock-effects"
         - "ttf-ms-win10-auto"
         - "wayland-pipewire-idle-inhibit"
+        - "waybar-cava"
         - "wlopm"
       headed:
         - "alacritty"

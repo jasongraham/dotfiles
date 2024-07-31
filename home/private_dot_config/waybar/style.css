@@ -24,6 +24,7 @@
 #window,
 #workspaces,
 #network,
+#cava,
 #pulseaudio,
 #clock,
 #memory,
@@ -99,6 +100,11 @@ window#waybar.hidden {
 }
 
 #network {
+  color: @bg0;
+  background: @purple;
+}
+
+#cava {
   color: @bg0;
   background: @purple;
 }
