@@ -25,7 +25,7 @@ pkill -f wpaperd || true
 wpaperd -d &
 
 pkill -f waybar || true
-waybar -c "$HOME/.config/waybar/river/config" -s "$HOME/.config/waybar/river/style.css" &
+waybar -c "$HOME/.config/waybar/river/config.jsonc" -s "$HOME/.config/waybar/river/style.css" &
 
 pkill -f wlsunset || true
 wlsunset -l 46.7 -L -117.2 -T 4800 -t 3700 &
