@@ -21,7 +21,7 @@ trap "cleanup" EXIT
 # Note: the "Super" modifier is also known as Logo, GUI, Windows, Mod4, etc.
 
 # Super+Shift+Return to start an instance of foot (https://codeberg.org/dnkl/foot)
-riverctl map normal Super+Shift Return spawn alacritty
+riverctl map normal Super+Shift Return spawn "kitty --single-instance"
 
 # Super+Shift+X to close the focused view
 riverctl map normal Super+Shift X close

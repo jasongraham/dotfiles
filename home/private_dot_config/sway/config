@@ -14,7 +14,7 @@ set $down j
 set $up k
 set $right l
 # Your preferred terminal emulator
-set $term alacritty
+set $term kitty --single-instance
 # Your preferred application launcher
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
@@ -38,7 +38,7 @@ set $session_manager ~/bin/leave.sh
 output DP-2 resolution 1920x1080 position 0,0
 output DP-1 resolution 1920x1080 position 1920,0
 # Note: Both the bottom options here seemed to either not work, or
-# alternatively caused extermely high CPU and very slow response to keyboard
+# alternatively caused extremely high CPU and very slow response to keyboard
 # presses while in the terminal.  The latter I'm not exactly sure what caused that.
 #
 # Adaptive sync also does not appear to work correctly with Nvidia hardware/drivers at all.

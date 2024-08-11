@@ -35,11 +35,11 @@ packages:
         - "wayland-pipewire-idle-inhibit"
         - "wlopm"
       headed:
-        - "alacritty"
         - "firefox"
         - "gamescope"
         - "grim"
         - "imagemagick"
+        - "kitty"
         - "libreoffice-still"
         - "mpv"
         - "profile-cleaner"
