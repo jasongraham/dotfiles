@@ -217,7 +217,7 @@ input * xkb_options caps:swapescape
     # Move focus to the parent container
     bindsym $mod+a focus parent
 
-    # Emulate swaping to master area in master/stack mode
+    # Emulate swapping to master area in master/stack mode
     bindsym $mod+Return mark swap, focus left, swap container with mark swap
 #
 # Scratchpad:
