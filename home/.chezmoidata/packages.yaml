@@ -70,4 +70,5 @@ packages:
         - "ripgrep"
         - "shellcheck"
         - "starship"
+        - "yazi"
         - "zoxide"
