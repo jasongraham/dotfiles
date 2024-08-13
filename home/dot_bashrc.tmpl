@@ -84,6 +84,7 @@ alias whoareyou='echo "I'\''m a freaking computer, dumbass."'
 
 if [[ $(command -v bat) ]]; then
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+    export MANROFFOPT="-c"
 else
     export MANPAGER="less -R --use-color -Dd+r -Du+b"
     export MANROFFOPT="-P -c"
