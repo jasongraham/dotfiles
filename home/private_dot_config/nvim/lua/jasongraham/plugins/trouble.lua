@@ -5,6 +5,7 @@ return {
     cmd = "Trouble",
     opts = { use_diagnostic_signs = true },
     keys = {
+        { "<leader>x", desc = "+Trouble" },
         { "<leader>xx", "<cmd>Trouble diagnostics toggle<CR>", desc = "Diagnostics (Trouble)" },
         { "<leader>xX", "<cmd>Trouble diagnostics toggle filter.buf=0<CR>", desc = "Buffer Diagnostics (Trouble)" },
         { "<leader>xL", "<cmd>Trouble loclist toggle<CR>", desc = "Location List (Trouble)" },

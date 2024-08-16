@@ -10,6 +10,7 @@ return {
     },
     cmd = "Telescope",
     keys = {
+        { "<leader>f", desc = "+Telescope" },
         { "<leader>ff", "<cmd>Telescope find_files<cr>", desc = "Fuzzy find files in cwd" },
         { "<leader>fr", "<cmd>Telescope oldfiles<cr>", desc = "Fuzzy find recent files" },
         { "<leader>fs", "<cmd>Telescope live_grep<cr>", desc = "Find string in cwd" },
