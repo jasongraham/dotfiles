@@ -1,8 +1,8 @@
 # Options
 ignore-empty-password
 show-failed-attempts
-fade-in=1
-grace=19
+fade-in=3
+grace=17
 
 # General
 clock
