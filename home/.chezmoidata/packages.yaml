@@ -68,7 +68,6 @@ packages:
         - "pre-commit"
         - "pyenv"
         - "ripgrep"
-        - "shellcheck"
         - "starship"
         - "yazi"
         - "zoxide"
