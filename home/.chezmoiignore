@@ -1,5 +1,7 @@
 {{- if (or (.headless) (ne "linux" .chezmoi.os)) -}}
 .config/alacritty
+.config/cava
+.config/kitty
 .config/mako
 .config/mpv
 .config/profile-cleaner.conf
@@ -11,6 +13,7 @@
 .config/swaylock
 .config/waybar
 .config/wayland-pipewire-idle-inhibit
+.config/wezterm
 .config/wpaperd
 
 .local/share/rofi
@@ -20,9 +23,9 @@ bin/lofi-yt
 {{- end }}
 
 {{ if ne .osid "linux-arch" -}}
+bin/pkgclean.sh
 bin/pm-disowned
 bin/updatemirrors
-bin/pkgclean.sh
 {{- end }}
 
 {{ if not .personal -}}
