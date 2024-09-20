@@ -173,8 +173,7 @@ if [[ $(command -v fzf) ]]; then
 fi
 
 if [[ $(command -v zoxide) ]]; then
-    eval "$(zoxide init bash)"
-    alias cd='z'
+    eval "$(zoxide init --cmd cd bash)"
 fi
 
 if [[ $(command -v yazi) ]]; then
