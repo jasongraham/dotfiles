@@ -1,6 +1,7 @@
 return {
     {
         "williamboman/mason-lspconfig.nvim",
+        version = "^1",
         event = { "BufReadPre", "BufNewFile" },
         opts = {
             -- list of servers for mason to install
@@ -33,7 +34,7 @@ return {
         "williamboman/mason.nvim",
         build = ":MasonUpdate",
         cmd = "Mason",
-        version = "*",
+        version = "^1",
         opts = {
             ui = {
                 icons = {
