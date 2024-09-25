@@ -19,27 +19,19 @@ readonly REPO="aurto"
 REPOPATH=$(find /var/cache/pacman/ -maxdepth 1 -name "$REPO")
 readonly REPOPATH
 
-get_build_dir() {
+setup_build_dir() {
     local -r PKG=$1
     local -r BUILD_ROOT="$HOME"/.cache/aurutils/sync
-    local build_dir
 
-    find_in_build_root() {
-        local -r BUILD_ROOT=$1
-        local -r PKG=$2
-        find "$BUILD_ROOT" -maxdepth 1 -name "$PKG"
-    }
-
-    build_dir=$(find_in_build_root "$BUILD_ROOT" "$PKG")
-    if [ ! -d "$build_dir" ] ; then
+    if [ ! -d "$BUILD_ROOT"/"$PKG" ] ; then
         cd "$BUILD_ROOT"
         aur fetch "$PKG"
-        build_dir=$(find_in_build_root "$BUILD_ROOT" "$PKG")
     fi
-    echo "$build_dir"
+
+    echo "$BUILD_ROOT"/"$PKG"
 }
 
-BUILD_DIR=$(get_build_dir "$PKG")
+BUILD_DIR=$(setup_build_dir "$PKG")
 readonly BUILD_DIR
 
 cd "$BUILD_DIR"
