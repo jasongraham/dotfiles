@@ -37,20 +37,20 @@ setup_build_dir() {
 BUILD_DIR=$(setup_build_dir)
 readonly BUILD_DIR
 
-cd "$BUILD_DIR"
+perform_build() {
+    cd "$BUILD_DIR"
 
-aur build \
-    --database="$REPO" \
-    --makepkg-conf=/etc/aurto/makepkg-chroot.conf \
-    --pacman-conf=/etc/aurto/pacman-chroot.conf \
-    --force \
-    --remove \
-    --chroot \
-    "$PKG"
+    aur build \
+        --database="$REPO" \
+        --makepkg-conf=/etc/aurto/makepkg-chroot.conf \
+        --pacman-conf=/etc/aurto/pacman-chroot.conf \
+        --force \
+        --remove \
+        --chroot \
+        "$PKG"
+}
 
-readonly retval=$?
-
-if [ $retval -eq 0 ] ; then
+if perform_build ; then
     PKGPATH=$(find "$REPOPATH" -maxdepth 1 -name "$PKG*")
     readonly PKGPATH
 
