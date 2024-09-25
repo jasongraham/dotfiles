@@ -51,13 +51,20 @@ perform_build() {
 }
 
 if perform_build ; then
-    PKGPATH=$(find "$REPOPATH" -maxdepth 1 -name "$PKG*")
-    readonly PKGPATH
-
-    # shellcheck disable=SC2046
-    if [ $(echo "$PKGPATH" | wc -l) -ne 1 ] ; then
-        echo "Unexpected number of packages matching $PKG in: $PKGPATH"
+    readonly PKGARRAY=("$REPOPATH"/"$PKG"*)
+    if [ ${#PKGARRAY[@]} -eq 0 ] ; then
+        echo "Failed to find package matching $PKG in $REPOPATH"
         exit 3
+    fi
+    if [ ${#PKGARRAY[@]} -gt 1 ] ; then
+        echo "Found multiple matches for $PKG in $REPOPATH"
+        exit 4
+    fi
+
+    readonly PKGPATH="${PKGARRAY[0]}"
+    if [ ! -f "$PKGPATH" ] ; then
+        echo "Match $PKGPATH for package $PKG in $REPOPATH is not a file"
+        exit 5
     fi
 
     # Install packages from database
