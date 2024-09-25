@@ -1,0 +1,75 @@
+#!/bin/bash
+# Manually rebuild and install an AUR package
+
+set -eu -o pipefail
+
+readonly PKG=$1
+
+if pacman -Qe "$PKG" > /dev/null ; then
+    EXP_OR_DEP="--asexplicit"
+elif pacman -Qd "$PKG" > /dev/null ; then
+    EXP_OR_DEP="--asdeps"
+else
+    echo "Could not determine if '$PKG' was explicitly installed"
+    exit 1
+fi
+readonly EXP_OR_DEP
+
+readonly REPO="aurto"
+REPOPATH=$(find /var/cache/pacman/ -maxdepth 1 -name "$REPO")
+readonly REPOPATH
+
+get_build_dir() {
+    local -r PKG=$1
+    local -r BUILD_ROOT="$HOME"/.cache/aurutils/sync
+    local build_dir
+
+    find_in_build_root() {
+        local -r BUILD_ROOT=$1
+        local -r PKG=$2
+        find "$BUILD_ROOT" -maxdepth 1 -name "$PKG"
+    }
+
+    build_dir=$(find_in_build_root "$BUILD_ROOT" "$PKG")
+    if [ ! -d "$build_dir" ] ; then
+        cd "$BUILD_ROOT"
+        aur fetch "$PKG"
+        build_dir=$(find_in_build_root "$BUILD_ROOT" "$PKG")
+    fi
+    echo "$build_dir"
+}
+
+BUILD_DIR=$(get_build_dir "$PKG")
+readonly BUILD_DIR
+
+cd "$BUILD_DIR"
+
+aur build \
+    --database="$REPO" \
+    --makepkg-conf=/etc/aurto/makepkg-chroot.conf \
+    --pacman-conf=/etc/aurto/pacman-chroot.conf \
+    --force \
+    --remove \
+    --chroot \
+    --clean \
+    --cleanbuild \
+    "$PKG"
+
+readonly retval=$?
+
+if [ $retval -eq 0 ] ; then
+    PKGPATH=$(find "$REPOPATH" -maxdepth 1 -name "$PKG*")
+    readonly PKGPATH
+
+    # shellcheck disable=SC2046
+    if [ $(echo "$PKGPATH" | wc -l) -ne 1 ] ; then
+        echo "Unexpected number of packages matching $PKG in: $PKGPATH"
+        exit 2
+    fi
+
+    # Install packages from database
+    sudo pacman \
+        --upgrade \
+        "$EXP_OR_DEP" \
+        "$PKGPATH"
+fi
