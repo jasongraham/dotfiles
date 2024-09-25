@@ -20,7 +20,6 @@ REPOPATH=$(find /var/cache/pacman/ -maxdepth 1 -name "$REPO")
 readonly REPOPATH
 
 setup_build_dir() {
-    local -r PKG=$1
     local -r BUILD_ROOT="$HOME"/.cache/aurutils/sync
 
     if [ ! -d "$BUILD_ROOT"/"$PKG" ] ; then
@@ -31,7 +30,7 @@ setup_build_dir() {
     echo "$BUILD_ROOT"/"$PKG"
 }
 
-BUILD_DIR=$(setup_build_dir "$PKG")
+BUILD_DIR=$(setup_build_dir)
 readonly BUILD_DIR
 
 cd "$BUILD_DIR"
@@ -43,8 +42,6 @@ aur build \
     --force \
     --remove \
     --chroot \
-    --clean \
-    --cleanbuild \
     "$PKG"
 
 readonly retval=$?
