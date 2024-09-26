@@ -73,10 +73,10 @@
 
     "cava": {
       //        "cava_config": "$XDG_CONFIG_HOME/cava/cava.conf",
-      "bars": 14,
+      "bars": 16,
       "bar_delimiter": 0,
       "input_delay": 2,
-      "hide_on_silence": true,
+      "hide_on_silence": false,
       "format-icons": ["▁", "▂", "▃", "▄", "▅", "▆", "▇", "█"],
       "actions": {
         "on-click-right": "mode"
