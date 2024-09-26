@@ -21,9 +21,9 @@
 
   "network": {
     "format-wifi": "  {essid} ({signalStrength}%)",
-    "format-ethernet": "{ipaddr}/{cidr}",
-    "format-linked": "{ifname} (No IP)",
-    "format-disconnected": "Disconnected",
+    "format-ethernet": "󰈀 {ipaddr}/{cidr}",
+    "format-linked": "󰈀 {ifname} (No IP)",
+    "format-disconnected": "󰈂 Disconnected",
     "tooltip-format": "{ifname} via {gwaddr}"
   },
 
@@ -58,6 +58,6 @@
     "tooltip-format": "{usage0:3} {usage1:3} {usage2:3} {usage3:3} {usage4:3} {usage5:3} {usage6:3} {usage7:3} {usage8:3} {usage9:3} {usage10:3} {usage11:3}"
   },
   "memory": {
-    "format": " {:3}%"
+    "format": "{:3}%"
   }
 }
