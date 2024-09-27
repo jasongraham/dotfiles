@@ -23,6 +23,7 @@ bin/lofi-yt
 {{- end }}
 
 {{ if ne .osid "linux-arch" -}}
+bin/aur_rebuild
 bin/pkgclean.sh
 bin/pm-disowned
 bin/updatemirrors
