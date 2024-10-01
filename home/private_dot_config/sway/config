@@ -297,11 +297,8 @@ exec wlsunset -l 46.7 -L -117.2 -T 4800 -t 3700
 # Wallpaper daemon
 exec wpaperd -d
 
-# Set a primary monitor for Wine applications
-exec_always xrandr --output XWAYLAND1 --primary
-
 # Set up layout manager, mimic master/stack layout
-exec_always autotiling \
+exec autotiling \
         --limit 2 \
         --splitwidth 0.8
 
