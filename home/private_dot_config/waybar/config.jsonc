@@ -6,6 +6,10 @@
     "modules-center": ["sway/window"],
     "modules-right": ["sway/mode", "network", "clock"],
 
+    // Use same id for both bars to toggle together
+    "bar_id": "bar-0",
+    "ipc": true,
+
     "sway/window": {
       "tooltip": false,
       "icon": true,
@@ -60,6 +64,10 @@
     "modules-left": ["sway/workspaces"],
     "modules-center": ["sway/window"],
     "modules-right": ["tray", "cava", "pulseaudio"],
+
+    // Use same id for both bars to toggle together
+    "bar_id": "bar-0",
+    "ipc": true,
 
     "sway/window": {
       "tooltip": false,

@@ -273,7 +273,11 @@ bindsym $mod+r mode "resize"
 #         inactive_workspace #32323200 #32323200 #5c5c5c
 #     }
 # }
-bar swaybar_command waybar
+bar {
+    swaybar_command waybar
+    modifier none
+}
+bindsym $mod+shift+b bar mode toggle
 
 # Titlebars
 default_border pixel
