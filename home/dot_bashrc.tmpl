@@ -11,9 +11,9 @@
 # This is not a login shell, but we still want the environment variables
 # in /etc/environment
 # Sometimes, like when using tmux, a non-login shell becomes a login-shell
-if ! $(shopt -q login_shell); then
+if ! shopt -q login_shell; then
     PATH_TMP=$PATH
-    while read line; do export "$line"; done < /etc/environment
+    while read -r line; do export "$line?"; done < /etc/environment
     export PATH=$PATH_TMP:${PATH:1:${#PATH}-2}
     unset PATH_TMP
 fi
