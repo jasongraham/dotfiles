@@ -77,18 +77,22 @@ alias la='ls -a'
 alias grep='grep --color=auto'
 alias whoareyou='echo "I'\''m a freaking computer, dumbass."'
 
-[[ $(command -v batcat) ]] && alias bat='batcat'
-[[ $(command -v bat) ]] && alias cat='bat'
-[[ $(command -v nvim) ]] && alias vim='nvim'
-[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
-
-if [[ $(command -v bat) ]]; then
+if [[ $(command -v batcat) ]]; then
+    export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
+    export MANROFFOPT="-c"
+    alias bat='batcat'
+    alias cat='batcat'
+elif [[ $(command -v bat) ]]; then
     export MANPAGER="sh -c 'col -bx | bat -l man -p'"
     export MANROFFOPT="-c"
+    alias cat='bat'
 else
     export MANPAGER="less -R --use-color -Dd+r -Du+b"
     export MANROFFOPT="-P -c"
 fi
+
+[[ $(command -v nvim) ]] && alias vim='nvim'
+[ "$TERM" = "xterm-kitty" ] && alias ssh="kitty +kitten ssh"
 
 # Disable Pango in Firefox
 export MOZ_DISABLE_PANGO=1
