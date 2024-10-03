@@ -20,7 +20,7 @@
   min-height: 10px;
 }
 
-#submap,
+#mode,
 #window,
 #workspaces,
 #network,
@@ -46,13 +46,12 @@ window#waybar.hidden {
   opacity: 0.2;
 }
 
-window#waybar.empty #window,
-window#waybar.solo #window {
+#waybar.empty #window {
   color: transparent;
   background-color: transparent;
 }
 
-#submap {
+#mode {
   background-color: @red;
   color: @fg0;
 }
@@ -81,7 +80,7 @@ window#waybar.solo #window {
   font-size: 4px;
 }
 
-#workspaces button.active {
+#workspaces button.focused {
   color: @aqua;
   border-color: @aqua;
 }
@@ -94,7 +93,7 @@ window#waybar.solo #window {
   color: @bg0;
 }
 
-#workspaces button.active:hover {
+#workspaces button.focused:hover {
   border-color: @bg0;
   background-color: @aqua;
   color: @bg0;

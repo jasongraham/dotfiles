@@ -274,7 +274,7 @@ bindsym $mod+r mode "resize"
 #     }
 # }
 bar {
-    swaybar_command waybar
+    swaybar_command waybar -c ~/.config/waybar/sway/config.jsonc -s ~/.config/waybar/sway/style.css
     modifier none
 }
 bindsym $mod+shift+b bar mode toggle

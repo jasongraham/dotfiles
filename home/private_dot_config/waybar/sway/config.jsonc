@@ -2,16 +2,16 @@
   {
     "output": "DP-2", // primary
     "layer": "top",
-    "modules-left": ["cpu", "memory", "hyprland/workspaces"],
-    "modules-center": ["hyprland/window"],
-    "modules-right": ["hyprland/submap", "network", "clock"],
+    "modules-left": ["cpu", "memory", "sway/workspaces"],
+    "modules-center": ["sway/window"],
+    "modules-right": ["sway/mode", "network", "clock"],
 
     // Use same id for both bars to toggle together
     "bar_id": "bar-0",
     "ipc": true,
 
-    "hyprland/window": {
-      "separate-outputs": true,
+    "sway/window": {
+      "tooltip": false,
       "icon": true,
       "icon-size": 18,
       "max-length": 64,
@@ -61,16 +61,16 @@
   {
     "output": ["DP-1"], // secondary
     "layer": "top",
-    "modules-left": ["hyprland/workspaces"],
-    "modules-center": ["hyprland/window"],
+    "modules-left": ["sway/workspaces"],
+    "modules-center": ["sway/window"],
     "modules-right": ["tray", "cava", "pulseaudio"],
 
     // Use same id for both bars to toggle together
     "bar_id": "bar-0",
     "ipc": true,
 
-    "hyprland/window": {
-      "separate-outputs": true,
+    "sway/window": {
+      "tooltip": false,
       "icon": true,
       "icon-size": 18,
       "max-length": 64,
