@@ -29,6 +29,7 @@
 #clock,
 #memory,
 #cpu,
+#custom-weather,
 #tray {
   margin-top: 5px;
   margin-left: 8px;
@@ -36,6 +37,11 @@
   padding-right: 10px;
   margin-bottom: 0px;
   transition: none;
+}
+
+#custom-weather {
+  background: @blue;
+  color: @bg0;
 }
 
 window#waybar {

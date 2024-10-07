@@ -61,13 +61,24 @@
   {
     "output": ["DP-1"], // secondary
     "layer": "top",
-    "modules-left": ["hyprland/workspaces"],
+    "modules-left": ["custom/weather", "hyprland/workspaces"],
     "modules-center": ["hyprland/window"],
     "modules-right": ["tray", "cava", "pulseaudio"],
 
     // Use same id for both bars to toggle together
     "bar_id": "bar-0",
     "ipc": true,
+
+    "custom/weather": {
+      "format": "{}",
+      "max-length": 20,
+      "min-length": 20,
+      "align": "right",
+      "interval": 600,
+      "exec": "curl wttr.in/Pullman?format=3",
+      "exec-if": "networkctl status --all --no-pager > /dev/null",
+      "hide-empty-text": true
+    },
 
     "hyprland/window": {
       "separate-outputs": true,
