@@ -5,6 +5,7 @@ return {
     build = ":TSUpdate",
     dependencies = {
         "windwp/nvim-ts-autotag",
+        "mrhh69/nvim-kitty",
     },
     opts = {
         highlight = { enable = true },
@@ -48,6 +49,7 @@ return {
         vim.filetype.add({
             extension = { rasi = "rasi" },
             pattern = {
+                [".*/kitty/.*%.conf"] = "kitty",
                 [".*/hypr/.*%.conf"] = "hyprlang",
             },
         })
