@@ -44,4 +44,14 @@ return {
             },
         },
     },
+    config = function(_, opts)
+        vim.filetype.add({
+            extension = { rasi = "rasi" },
+            pattern = {
+                [".*/hypr/.*%.conf"] = "hyprlang",
+            },
+        })
+
+        require("nvim-treesitter.configs").setup(opts)
+    end,
 }
