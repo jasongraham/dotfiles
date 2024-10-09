@@ -53,6 +53,7 @@ packages:
         - "ttf-firacode-nerd"
         - "wlsunset"
         - "wpaperd"
+        - "udiskie"
         - "wtype"
         - "xdg-desktop-portal-hyprland"
         - "zoxide"

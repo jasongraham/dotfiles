@@ -11,6 +11,7 @@
 .config/rofi-pass
 .config/sway
 .config/swaylock
+.config/udiskie
 .config/waybar
 .config/wayland-pipewire-idle-inhibit
 .config/wezterm
