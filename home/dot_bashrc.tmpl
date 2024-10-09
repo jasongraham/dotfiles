@@ -58,6 +58,10 @@ if [ "$(command -v pyenv)" ] || [ -d "$HOME"/.pyenv/bin ]; then
     eval "$(pyenv init -)"
 fi
 
+if [ "$(command -v go)" ]; then
+    export PATH="$PATH:$(go env GOBIN):$(go env GOPATH)/bin"
+fi
+
 # Bash Completion under sudo and man
 #complete -cf sudo
 #complete -cf man
