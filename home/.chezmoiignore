@@ -21,6 +21,7 @@
 bin/leave.sh
 bin/lockimage.sh
 bin/lofi-yt
+bin/perfmode
 {{- end }}
 
 {{ if ne .osid "linux-arch" -}}
