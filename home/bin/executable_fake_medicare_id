@@ -6,10 +6,11 @@ https://www.cms.gov/medicare/new-medicare-card/understanding-the-mbi-with-format
 """
 
 import random
+import re
+import string
 
-
-NUMBER = "0123456789"
-LETTER = "ACDEFGHJKMNPQRTUVWXY"  # not SLOIBZ
+NUMBER = string.digits
+LETTER = re.sub("[SLOIBZ]", "", string.ascii_uppercase)
 
 C = NUMBER[1:]  # not 0
 N = NUMBER
