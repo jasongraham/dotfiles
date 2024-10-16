@@ -8,6 +8,7 @@ return {
             ensure_installed = {
                 "bashls",
                 "lua_ls",
+                "pyright",
                 "ruff",
                 "rust_analyzer",
                 "taplo",
