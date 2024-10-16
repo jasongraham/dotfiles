@@ -1,0 +1,7 @@
+show=drun
+allow_images=true
+insensitive=true
+matching=contains
+layer=overlay
+hide_scroll=true
+prompt=

@@ -7,14 +7,14 @@
 .config/profile-cleaner.conf
 .config/psd
 .config/river
-.config/rofi
-.config/rofi-pass
 .config/sway
 .config/swaylock
 .config/udiskie
 .config/waybar
 .config/wayland-pipewire-idle-inhibit
 .config/wezterm
+.config/wofi
+.config/wofi-pass
 .config/wpaperd
 
 .local/share/rofi

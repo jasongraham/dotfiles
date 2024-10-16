@@ -1,9 +1,12 @@
 #!/bin/bash
-# Logout script for use with rofi
+# Logout script for use with wofi
 
 set -eu -o pipefail
 
-choice=$(printf "Lock\nLogout\nSuspend\nReboot\nShutdown" | rofi -dmenu -i)
+# Don't open if another instance of wofi is running
+pidof wofi && exit
+
+choice=$(printf "Lock\nLogout\nSuspend\nReboot\nShutdown" | wofi --show=dmenu -i)
 if [[ $choice == "Lock" ]];then
     hyprctl dispatch exec "$HOME"/bin/lockimage.sh
 elif [[ $choice == "Logout" ]];then
