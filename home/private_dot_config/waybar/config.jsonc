@@ -77,6 +77,7 @@
       "interval": 600,
       "exec": "curl wttr.in/Pullman?format=3",
       "exec-if": "networkctl status --all --no-pager > /dev/null",
+      "on-click": "kitty --app-id wttr sh -c 'curl wttr.in/Pullman; read'",
       "hide-empty-text": true
     },
 
