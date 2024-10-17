@@ -180,7 +180,7 @@ if [[ $(command -v fzf) ]]; then
 
     [ -d "$HOME"/.local/share/fzf-git.sh ] && source "$HOME"/.local/share/fzf-git.sh/fzf-git.sh
 
-    if verlte "0.52.1" "$_FZF_VERSION" ; then
+    if verlte "$_FZF_VERSION" "0.52.1" ; then
         # --tag option hasn't been introduced yet, prevent errors
         _fzf_git_fzf() {
             fzf --height=50% \
