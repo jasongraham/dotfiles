@@ -129,7 +129,8 @@ verlte() {
 }
 
 if [[ $(command -v fzf) ]]; then
-    if verlte "0.48.0" "$(fzf --version | cut -d ' ' -f1)" ; then
+    _FZF_VERSION="$(fzf --version | cut -d ' ' -f1)"
+    if verlte "0.48.0" "$_FZF_VERSION" ; then
         # fzf supports this with versions starting at 0.48.0
         eval "$(fzf --bash)"
     else
@@ -178,6 +179,19 @@ if [[ $(command -v fzf) ]]; then
     fi
 
     [ -d "$HOME"/.local/share/fzf-git.sh ] && source "$HOME"/.local/share/fzf-git.sh/fzf-git.sh
+
+    if verlte "0.52.1" "$_FZF_VERSION" ; then
+        # --tag option hasn't been introduced yet, prevent errors
+        _fzf_git_fzf() {
+            fzf --height=50% \
+                --layout=reverse --multi --min-height=20 --border \
+                --border-label-pos=2 \
+                --color='header:italic:underline,label:blue' \
+                --preview-window='right,50%,border-left' \
+                --bind='ctrl-/:change-preview-window(down,50%,border-top|hidden|)' "$@"
+        }
+    fi
+
 fi
 
 if [[ $(command -v zoxide) ]]; then
