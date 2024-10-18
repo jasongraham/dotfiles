@@ -59,7 +59,9 @@ if [ "$(command -v pyenv)" ] || [ -d "$HOME"/.pyenv/bin ]; then
 fi
 
 if [ "$(command -v go)" ]; then
-    export PATH="$PATH:$(go env GOBIN):$(go env GOPATH)/bin"
+    _gobin=$(go env GOBIN)
+    _gopath=$(go env GOPATH)
+    export PATH="$PATH:$_gobin:$_gopath/bin"
 fi
 
 # Bash Completion under sudo and man
@@ -143,11 +145,12 @@ if [[ $(command -v fzf) ]]; then
 {{- end }}
     fi
 
-    export FZF_DEFAULT_OPTS="--layout=reverse --multi --border --cycle --border-label-pos=2 --height=50% --min-height=20"
+    FZF_DEFAULT_OPTS="--layout=reverse --multi --border --cycle --border-label-pos=2 --height=50% --min-height=20"
     if verlte "0.53.0" "$_FZF_VERSION" ; then
         # --tmux option introduced in 0.53.0
-        export FZF_DEFAULT_OPTS="--tmux $FZF_DEFAULT_OPTS"
+        FZF_DEFAULT_OPTS="--tmux $FZF_DEFAULT_OPTS"
     fi
+    export FZF_DEFAULT_OPTS
 
     [ -d "$HOME"/.local/share/fzf-git.sh ] && source "$HOME"/.local/share/fzf-git.sh/fzf-git.sh
     # Prevent fzf-git from running into issues with invalid options through altering default opts
