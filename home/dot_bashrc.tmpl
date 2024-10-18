@@ -145,7 +145,7 @@ if [[ $(command -v fzf) ]]; then
 
     export FZF_DEFAULT_OPTS="--layout=reverse --multi --border --cycle --border-label-pos=2 --height=50% --min-height=20"
     if verlte "0.53.0" "$_FZF_VERSION" ; then
-        "--tmux option introduced in 0.53.0"
+        # --tmux option introduced in 0.53.0
         export FZF_DEFAULT_OPTS="--tmux $FZF_DEFAULT_OPTS"
     fi
 
