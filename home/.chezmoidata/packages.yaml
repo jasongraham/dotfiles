@@ -69,7 +69,6 @@ packages:
         - "npm"
         - "pkgfile"
         - "pre-commit"
-        - "pyenv"
         - "rebuild-detector"
         - "reflector"
         - "ripgrep"
