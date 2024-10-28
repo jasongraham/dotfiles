@@ -150,6 +150,10 @@ if [[ $(command -v fzf) ]]; then
         # --tmux option introduced in 0.53.0
         FZF_DEFAULT_OPTS="--tmux $FZF_DEFAULT_OPTS"
     fi
+    if verlte "0.56.0" "$_FZF_VERSION" ; then
+        # --gap option introduced in 0.56.0
+        FZF_DEFAULT_OPTS="--gap $FZF_DEFAULT_OPTS"
+    fi
     export FZF_DEFAULT_OPTS
 
     [ -d "$HOME"/.local/share/fzf-git.sh ] && source "$HOME"/.local/share/fzf-git.sh/fzf-git.sh
