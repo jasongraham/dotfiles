@@ -31,6 +31,7 @@ packages:
         - "wayland-pipewire-idle-inhibit"
       headed:
         - "firefox"
+        - "fortune-mod"
         - "gamescope"
         - "grim"
         - "hyprland"
