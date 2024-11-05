@@ -22,7 +22,6 @@ return {
         event = { "BufReadPre", "BufNewFile" },
         opts = {
             ensure_installed = {
-                "prettier", -- fmt
                 "ruff", -- python fmt/lint
                 "rustfmt", -- rust
                 "stylua", -- lua fmt
