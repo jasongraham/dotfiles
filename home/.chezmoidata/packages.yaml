@@ -22,6 +22,7 @@ packages:
         - "aurto"
         - "aurutils"
         - "cfs-zen-tweaks"
+        - "mergiraf"
         - "oranchelo-icon-theme"
         - "pkgcacheclean"
         - "python-jupytext"

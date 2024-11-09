@@ -9,6 +9,12 @@
     editor = nvim
     autocrlf = input
     pager = delta
+{{- if eq .osid "linux-arch" }}
+    attributesfile = ~/.gitattributes
+[merge "mergiraf"]
+    name = mergiraf
+    driver = mergiraf merge --git %O %A %B -s %S -x %X -y %Y -p %P
+{{- end }}
 [merge]
     tool = nvimdiff
 [mergetool]
