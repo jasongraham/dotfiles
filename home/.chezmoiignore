@@ -29,6 +29,7 @@ bin/aur_rebuild
 bin/pkgclean.sh
 bin/pm-disowned
 bin/updatemirrors
+generate_gitattributes.sh
 {{- end }}
 
 {{ if not .personal -}}
