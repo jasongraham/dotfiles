@@ -42,6 +42,7 @@ packages:
         - "kitty"
         - "libreoffice-still"
         - "mpv"
+        - "pkgstats"
         - "profile-cleaner"
         - "profile-sync-daemon"
         - "rbw"
