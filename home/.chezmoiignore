@@ -26,6 +26,7 @@ bin/perfmode
 
 {{ if ne .osid "linux-arch" -}}
 bin/aur_rebuild
+bin/aur_vote_aurto
 bin/pkgclean.sh
 bin/pm-disowned
 bin/updatemirrors

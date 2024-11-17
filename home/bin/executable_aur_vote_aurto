@@ -1,0 +1,28 @@
+#!/bin/bash
+
+set -eu -o pipefail
+
+# Avoid pounding the server between votes
+readonly DELAY=2 # seconds
+
+# If we needed to get these the brute force way
+# AURTO_PKGS_FILE=$(mktemp)
+# readonly AURTO_PKGS_FILE
+# ALL_PKGS_FILE=$(mktemp)
+# readonly ALL_PKGS_FILE
+#
+# pacman --sync --list --quiet aurto | sort > "$AURTO_PKGS_FILE"
+# pacman -Qq | sort > "$ALL_PKGS_FILE"
+#
+# for pkg in $(comm -12 "$AURTO_PKGS_FILE" "$ALL_PKGS_FILE") ; do
+for pkg in $(chezmoi data --format=json | jq --raw-output .packages.linux.arch.aur.[] ); do
+    echo "Voting for $pkg"
+
+    # An error message is returned if we have already voted for a package.
+    #
+    # We do want to expand this variable on this host, not the remote.
+    # shellcheck disable=2029
+    ssh aur@aur.archlinux.org vote "$pkg" || true
+
+    sleep $DELAY
+done
