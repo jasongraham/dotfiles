@@ -16,6 +16,8 @@ return {
         "onsails/lspkind.nvim", -- vs-code like pictograms
         "saecki/crates.nvim", -- rust Cargo.toml completions
         "folke/lazydev.nvim",
+        "lukas-reineke/cmp-under-comparator",
+        "lukas-reineke/cmp-rg",
     },
     config = function()
         local cmp = require("cmp")
@@ -50,6 +52,7 @@ return {
                 { name = "luasnip" }, -- snippets
                 { name = "crates" },
                 { name = "buffer" }, -- text within current buffer
+                { name = "rg" },
                 { name = "path" }, -- file system paths
             }),
 
@@ -59,6 +62,20 @@ return {
                     maxwidth = 50,
                     ellipsis_char = "...",
                 }),
+            },
+
+            sorting = {
+                priority_weight = 2,
+                comparators = {
+                    cmp.config.compare.offset,
+                    cmp.config.compare.exact,
+                    cmp.config.compare.score,
+                    require("cmp-under-comparator").under,
+                    cmp.config.compare.kind,
+                    cmp.config.compare.sort_text,
+                    cmp.config.compare.length,
+                    cmp.config.compare.order,
+                },
             },
         })
     end,
