@@ -43,7 +43,24 @@ return {
                 ["<C-f>"] = cmp.mapping.scroll_docs(4),
                 ["<C-Space>"] = cmp.mapping.complete(), -- show completion suggestions
                 ["<C-e>"] = cmp.mapping.abort(), -- close completion window
-                ["<CR>"] = cmp.mapping.confirm({ select = false }),
+                ["<CR>"] = cmp.mapping(function(fallback)
+                    if luasnip.expandable() then
+                        luasnip.expand()
+                    elseif luasnip.locally_jumpable(1) then
+                        luasnip.jump(1) -- forward
+                    elseif cmp.visible() then
+                        cmp.confirm({ select = false })
+                    else
+                        fallback()
+                    end
+                end, { "i", "s" }),
+                ["<S-CR>"] = cmp.mapping(function(fallback)
+                    if luasnip.locally_jumpable(-1) then
+                        luasnip.jump(-1) -- backward
+                    else
+                        fallback()
+                    end
+                end, { "i", "s" }),
             }),
             -- sources for autocompletion
             sources = cmp.config.sources({
