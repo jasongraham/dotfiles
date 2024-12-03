@@ -39,3 +39,7 @@ bin/lofi-yt
 bin/update_grub.sh
 .config/rofi-pass
 {{- end -}}
+
+{{ if not .headless -}}
+.config/nvim/lua/jasongraham/plugins/smear-cursor.lua
+{{- end -}}
