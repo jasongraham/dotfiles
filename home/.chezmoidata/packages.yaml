@@ -56,7 +56,6 @@ packages:
         - "udiskie"
         - "wofi"
         - "wtype"
-        - "xdg-desktop-portal-hyprland"
         - "zoxide"
       headless:
         - "base-devel"
