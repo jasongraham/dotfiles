@@ -1,5 +1,9 @@
 return {
-    { "nvim-lua/plenary.nvim", lazy = true }, -- lua functions that many plugins use
+    -- Stuff needed only as dependencies for other plugins
+    { "nvim-lua/plenary.nvim", lazy = true },
+    { "nvim-tree/nvim-web-devicons", lazy = true },
+    { "MunifTanjim/nui.nvim", lazy = true },
+
     {
         "christoomey/vim-tmux-navigator",
         cmd = {

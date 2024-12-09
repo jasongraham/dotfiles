@@ -2,7 +2,6 @@ return {
     "folke/todo-comments.nvim",
     version = "*",
     cmd = { "TodoTrouble", "TodoTelescope" },
-    dependencies = { "nvim-lua/plenary.nvim" },
     keys = {
         {
             "]t",

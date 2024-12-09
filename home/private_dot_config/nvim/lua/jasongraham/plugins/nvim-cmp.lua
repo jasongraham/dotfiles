@@ -15,7 +15,6 @@ return {
         "rafamadriz/friendly-snippets", -- useful snippets
         "onsails/lspkind.nvim", -- vs-code like pictograms
         "saecki/crates.nvim", -- rust Cargo.toml completions
-        "folke/lazydev.nvim",
         "lukas-reineke/cmp-under-comparator",
         "lukas-reineke/cmp-rg",
     },
