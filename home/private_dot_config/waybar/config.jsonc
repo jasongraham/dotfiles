@@ -72,12 +72,11 @@
     "custom/weather": {
       "format": "{}",
       "max-length": 20,
-      "min-length": 20,
       "align": "right",
       "interval": 600,
-      "exec": "curl wttr.in/Pullman?format=3",
+      "exec": "curl wttr.in/?format=1",
       "exec-if": "networkctl status --all --no-pager > /dev/null",
-      "on-click": "kitty --app-id wttr sh -c 'curl wttr.in/Pullman; read'",
+      "on-click": "kitty --app-id wttr sh -c 'curl wttr.in/; read'",
       "hide-empty-text": true
     },
 
