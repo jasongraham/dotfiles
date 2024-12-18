@@ -18,11 +18,10 @@ readonly DELAY=2 # seconds
 for pkg in $(chezmoi data --format=json | jq --raw-output .packages.linux.arch.aur.[] ); do
     echo "Voting for $pkg"
 
-    # An error message is returned if we have already voted for a package.
-    #
     # We do want to expand this variable on this host, not the remote.
     # shellcheck disable=2029
-    ssh aur@aur.archlinux.org vote "$pkg" || true
+    ssh aur@aur.archlinux.org vote "$pkg" \
+        || true  # An error message is returned if we have already voted for a package.
 
     sleep $DELAY
 done
