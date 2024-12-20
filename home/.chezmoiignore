@@ -1,6 +1,7 @@
 {{- if (or (.headless) (ne "linux" .chezmoi.os)) -}}
 .config/alacritty
 .config/cava
+.config/hypr
 .config/kitty
 .config/mako
 .config/mpv
