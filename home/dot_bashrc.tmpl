@@ -83,6 +83,8 @@ alias la='ls -a'
 alias grep='grep --color=auto'
 alias whoareyou='echo "I'\''m a freaking computer, dumbass."'
 
+alias yt-dlp-audio='yt-dlp -f bestaudio -x --audio-format mp3'
+
 if [[ $(command -v batcat) ]]; then
     export MANPAGER="sh -c 'col -bx | batcat -l man -p'"
     export MANROFFOPT="-c"
