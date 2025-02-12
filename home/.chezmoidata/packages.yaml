@@ -23,7 +23,6 @@ packages:
         - "aurutils"
         - "cfs-zen-tweaks"
         - "oranchelo-icon-theme"
-        - "pkgcacheclean"
         - "python-jupytext"
         - "quarto-cli-bin"
         - "ttf-ms-win10-auto"
