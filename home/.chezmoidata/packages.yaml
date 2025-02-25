@@ -22,6 +22,7 @@ packages:
         - "aurto"
         - "aurutils"
         - "cfs-zen-tweaks"
+        - "downgrade"
         - "oranchelo-icon-theme"
         - "python-jupytext"
         - "quarto-cli-bin"
