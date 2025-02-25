@@ -5,6 +5,25 @@
     email = {{ .email }}
 [color]
     ui = true
+[column]
+    ui = auto
+[branch]
+    sort = -committerdate
+[tag]
+    sort = version:refname
+[push]
+    default = simple
+    autoSetupRemote = true
+    followTags = true
+[fetch]
+    prune = true
+    pruneTags = true
+    all = true
+[commit]
+    verbose = true
+[rerere]
+    enabled = true
+    autoupdate = true
 [core]
     editor = nvim
     autocrlf = input
@@ -38,7 +57,13 @@
     diffFilter = delta --color-only
 [rebase]
 	updateRefs = true
+    autoSquash = true
+    autoStash = true
 [diff]
+    algorithm = histogram
+    colorMoved = plain
+    mnemonicPrefix = true
+    renames = true
 {{- if .headless }}
     colorMoved = default
 {{- else }}
