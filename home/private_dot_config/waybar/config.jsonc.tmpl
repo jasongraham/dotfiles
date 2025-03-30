@@ -1,3 +1,4 @@
+// vim: ft=jsonc
 [
   {
     "output": "DP-2", // primary
@@ -38,7 +39,7 @@
         "on-scroll": -1,
         "weeks-pos": "left",
         "format": {
-          "today": "<span color='#eeeeee'><b><u>{}</u></b></span>"
+          "today": "<span color='{{ .colors.orange }}'><b><u>{}</u></b></span>"
         }
       },
       "actions": {

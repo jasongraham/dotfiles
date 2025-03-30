@@ -50,8 +50,8 @@
     pushf = push --force-with-lease --force-if-includes
 [delta]
     syntax-theme = gruvbox-dark
-    plus-color = "#98971a"
-    minus-color = "#cc241d"
+    plus-color = "{{ .colors.green }}"
+    minus-color = "{{ .colors.red }}"
     line-numbers = true
 [interactive]
     diffFilter = delta --color-only

@@ -1,3 +1,4 @@
+# vim: ft=hyprlang
 #####################
 ### LOOK AND FEEL ###
 #####################
@@ -12,8 +13,8 @@ general {
     border_size = 2
 
     # https://wiki.hyprland.org/Configuring/Variables/#variable-types for info about colors
-    col.active_border = rgba(7daea3dd) rgba(89b482dd) 45deg
-    col.inactive_border = rgba(928374aa)
+    col.active_border = rgba({{ trimPrefix "#" .colors.blue }}dd) rgba({{ trimPrefix "#" .colors.aqua }}dd) 45deg
+    col.inactive_border = rgba({{ trimPrefix "#" .colors.grey1 }}aa)
 
     layout = master
 }
@@ -34,7 +35,7 @@ decoration {
     }
 
     shadow {
-        color = rgba(1d2021ee)
+        color = rgba({{ trimPrefix "#" .colors.bg0 }}ee)
     }
 }
 

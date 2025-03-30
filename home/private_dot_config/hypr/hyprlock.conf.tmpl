@@ -1,3 +1,4 @@
+# vim: ft=hyprlang
 general {
     grace = 5
     hide_cursor = true
@@ -8,7 +9,7 @@ background {
     monitor = DP-2
     path = /tmp/DP-2.png   # supports png, jpg, webp (no animations, though)
     # path = screenshot # not working on Nvidia right now
-    color = rgba(40, 40, 40, 1.0)
+    color = rgb({{ trimPrefix "#" .colors.bg_dim }})
 
     # all these options are taken from hyprland, see https://wiki.hyprland.org/Configuring/Variables/#blur for explanations
     blur_passes = 3 # 0 disables blurring
@@ -19,7 +20,7 @@ background {
     monitor = DP-1
     path = /tmp/DP-1.png   # supports png, jpg, webp (no animations, though)
     # path = screenshot # not working on Nvidia right now
-    color = rgba(40, 40, 40, 1.0)
+    color = rgb({{ trimPrefix "#" .colors.bg_dim }})
 
     # all these options are taken from hyprland, see https://wiki.hyprland.org/Configuring/Variables/#blur for explanations
     blur_passes = 3 # 0 disables blurring
@@ -29,8 +30,8 @@ background {
 label {
     monitor = DP-2
     text_align = center
-    text = Welcome back, <span foreground='##a8b554'>$DESC</span>
-    color = rgba(212, 190, 152, 0.5)
+    text = Welcome back, <span foreground='#{{ .colors.green }}'>$DESC</span>
+    color = rgb({{ trimPrefix "#" .colors.fg0 }})
     font_size = 30
     font_family = FiraCode
     position = 0, 380
@@ -44,10 +45,10 @@ label {
 shape {
     monitor = DP-2
     size = 360, 360
-    color = rgba(29, 32, 33, 0.60)
+    color = rgba({{ trimPrefix "#" .colors.bg1 }}99)
     rounding = -1
     border_size = 8
-    border_color = rgba(168, 181, 84, 0.90)
+    border_color = rgba({{ trimPrefix "#" .colors.green }}e5)
     shadow_passes = 3
 
     position = 0, 80
@@ -60,7 +61,7 @@ label {
     text_align = center
     text = cmd[update:100] echo "$(date +%l:%M:%S%P)"
     # text = $TIME12
-    color = rgba(221, 199, 161, 1.0)
+    color = rgb({{ trimPrefix "#" .colors.fg1 }})
     font_size = 40
     font_family = FiraCode
     position = 0, 80
@@ -78,10 +79,10 @@ input-field {
     hide_input = true
     fail_timeout = 5000 # milliseconds before fail_text and fail_color disappears
 
-    outer_color = rgba(ea696200) rgba(7daea300) rgba(a9b66500)
-    capslock_color = rgb(204, 34, 34)
-    numlock_color = rgb(204, 34, 34)
-    bothlock_color = rgb(204, 34, 34)
+    outer_color = rgba({{ trimPrefix "#" .colors.red }}00) rgba({{ trimPrefix "#" .colors.green }}00) rgba({{ trimPrefix "#" .colors.blue }}00)
+    capslock_color = rgb({{ trimPrefix "#" .colors.red }})
+    numlock_color = rgb({{ trimPrefix "#" .colors.red }})
+    bothlock_color = rgb({{ trimPrefix "#" .colors.red }})
 
     invert_numlock = true # change color if numlock is off
     position = 0, -25
@@ -93,7 +94,7 @@ label {
     monitor = DP-2
     text_align = center
     text = $FAIL
-    color = rgba(234, 105, 98, 1.0)
+    color = rgb({{ trimPrefix "#" .colors.red }})
     font_size = 20
     font_family = FiraCode
     position = 0, -240
@@ -108,7 +109,7 @@ label {
     monitor = DP-2
     text_align = center
     text = <b>$ATTEMPTS[]</b>
-    color = rgba(234, 105, 98, 1.0)
+    color = rgb({{ trimPrefix "#" .colors.red }})
     font_size = 20
     font_family = FiraCode
     position = 0, -280
@@ -123,7 +124,7 @@ label {
     monitor = DP-1
     text_align = center
     text = cmd[update:60000] curl -s wttr.in/?format=1
-    color = rgba(221, 199, 161, 1.0)
+    color = rgb({{ trimPrefix "#" .colors.fg0 }})
     font_size = 30
     font_family = FiraCode
     position = 0, 240
@@ -138,7 +139,7 @@ label {
     monitor = DP-1
     text_align = left
     text = cmd[update:0] fortune -s
-    color = rgba(221, 199, 161, 1.0)
+    color = rgb({{ trimPrefix "#" .colors.fg0 }})
     font_size = 30
     font_family = FiraCode
     position = 0, -80
