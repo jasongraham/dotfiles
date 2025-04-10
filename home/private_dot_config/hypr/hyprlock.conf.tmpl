@@ -3,6 +3,7 @@ general {
     grace = 5
     hide_cursor = true
     ignore_empty_input = true
+    fail_timeout = 5000 # milliseconds before fail_text and fail_color disappears
 }
 
 background {
@@ -77,7 +78,6 @@ input-field {
     outline_thickness = 30
     fade_timeout = 2000 # Milliseconds before fade_on_empty is triggered.
     hide_input = true
-    fail_timeout = 5000 # milliseconds before fail_text and fail_color disappears
 
     outer_color = rgba({{ trimPrefix "#" .colors.red }}00) rgba({{ trimPrefix "#" .colors.green }}00) rgba({{ trimPrefix "#" .colors.blue }}00)
     capslock_color = rgb({{ trimPrefix "#" .colors.red }})
@@ -86,7 +86,6 @@ input-field {
 
     invert_numlock = true # change color if numlock is off
     position = 0, -25
-    z-index = 1
 }
 
 
