@@ -8,7 +8,7 @@ pidof wofi && exit
 
 choice=$(printf "Lock\nLogout\nSuspend\nReboot\nShutdown" | wofi --show=dmenu -i)
 if [[ $choice == "Lock" ]];then
-    hyprctl dispatch exec "$HOME"/bin/lockimage.sh
+    hyprctl dispatch exec hyprlock
 elif [[ $choice == "Logout" ]];then
     hyprctl dispatch exit
 elif [[ $choice == "Suspend" ]];then

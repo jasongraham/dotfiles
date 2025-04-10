@@ -20,7 +20,6 @@
 
 .local/share/rofi
 bin/leave.sh
-bin/lockimage.sh
 bin/lofi-yt
 bin/perfmode
 {{- end }}
