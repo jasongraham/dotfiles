@@ -48,8 +48,7 @@ shape {
 label {
     monitor = DP-2
     text_align = center
-    text = cmd[update:100] echo "$(date +%l:%M:%S%P)"
-    # text = $TIME12
+    text = $TIME12
     color = rgb({{ trimPrefix "#" .colors.fg1 }})
     font_size = 40
     font_family = FiraCode
@@ -64,7 +63,6 @@ input-field {
     monitor = DP-2
     size = 0, 0
     outline_thickness = 30
-    fade_timeout = 2000 # Milliseconds before fade_on_empty is triggered.
     hide_input = true
 
     outer_color = rgba({{ trimPrefix "#" .colors.red }}00) rgba({{ trimPrefix "#" .colors.green }}00) rgba({{ trimPrefix "#" .colors.blue }}00)
