@@ -6,18 +6,8 @@ general {
     fail_timeout = 5000 # milliseconds before fail_text and fail_color disappears
 }
 
+# Applies to both monitors
 background {
-    monitor = DP-2
-    path = screenshot
-    color = rgb({{ trimPrefix "#" .colors.bg_dim }})
-
-    # all these options are taken from hyprland, see https://wiki.hyprland.org/Configuring/Variables/#blur for explanations
-    blur_passes = 3 # 0 disables blurring
-    noise = 0.1
-}
-
-background {
-    monitor = DP-1
     path = screenshot
     color = rgb({{ trimPrefix "#" .colors.bg_dim }})
 
