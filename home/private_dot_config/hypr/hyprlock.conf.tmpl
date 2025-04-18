@@ -1,4 +1,17 @@
 # vim: ft=hyprlang
+
+$left_mon = DP-2
+$right_mon = DP-1
+
+$bg_fallback_color       = rgb({{ trimPrefix "#" .colors.bg_dim }})
+$bg_text_color           = rgb({{ trimPrefix "#" .colors.fg0 }})
+$circle_fill_color       = rgba({{ trimPrefix "#" .colors.bg1 }}99)
+$circle_border_color     = rgba({{ trimPrefix "#" .colors.green }}e5)
+$circle_text_color       = rgb({{ trimPrefix "#" .colors.fg1 }})
+$text_hl_color           = rgb({{ trimPrefix "#" .colors.green }})
+$text_err_color          = rgb({{ trimPrefix "#" .colors.red }})
+$typing_indicator_colors = rgba({{ trimPrefix "#" .colors.red }}00) rgba({{ trimPrefix "#" .colors.green }}00) rgba({{ trimPrefix "#" .colors.blue }}00)
+
 general {
     grace = 5
     hide_cursor = true
@@ -9,18 +22,17 @@ general {
 # Applies to both monitors
 background {
     path = screenshot
-    color = rgb({{ trimPrefix "#" .colors.bg_dim }})
+    color = $bg_fallback_color
 
-    # all these options are taken from hyprland, see https://wiki.hyprland.org/Configuring/Variables/#blur for explanations
-    blur_passes = 3 # 0 disables blurring
+    blur_passes = 3
     noise = 0.1
 }
 
 label {
-    monitor = DP-2
+    monitor = $left_mon
     text_align = center
     text = Welcome back, <span foreground='#{{ .colors.green }}'>$DESC</span>
-    color = rgb({{ trimPrefix "#" .colors.fg0 }})
+    color = $bg_text_color
     font_size = 30
     font_family = FiraCode
     position = 0, 380
@@ -30,12 +42,12 @@ label {
 }
 
 shape {
-    monitor = DP-2
+    monitor = $left_mon
     size = 360, 360
-    color = rgba({{ trimPrefix "#" .colors.bg1 }}99)
+    color = $circle_fill_color
     rounding = -1
     border_size = 8
-    border_color = rgba({{ trimPrefix "#" .colors.green }}e5)
+    border_color = $circle_border_color
     shadow_passes = 3
 
     position = 0, 80
@@ -44,10 +56,10 @@ shape {
 }
 
 label {
-    monitor = DP-2
+    monitor = $left_mon
     text_align = center
     text = $TIME12
-    color = rgb({{ trimPrefix "#" .colors.fg1 }})
+    color = $circle_text_color
     font_size = 40
     font_family = FiraCode
     position = 0, 80
@@ -56,15 +68,15 @@ label {
 # Doesn't display text as you type or show any messages,
 # but useful as an indicator that you are typing something
 input-field {
-    monitor = DP-2
+    monitor = $left_mon
     size = 0, 0
     outline_thickness = 30
     hide_input = true
 
-    outer_color = rgba({{ trimPrefix "#" .colors.red }}00) rgba({{ trimPrefix "#" .colors.green }}00) rgba({{ trimPrefix "#" .colors.blue }}00)
-    capslock_color = rgb({{ trimPrefix "#" .colors.red }})
-    numlock_color = rgb({{ trimPrefix "#" .colors.red }})
-    bothlock_color = rgb({{ trimPrefix "#" .colors.red }})
+    outer_color = $typing_indicator_colors
+    capslock_color = $text_err_color
+    numlock_color = $text_err_color
+    bothlock_color = $text_err_color
 
     invert_numlock = true # change color if numlock is off
     position = 0, -25
@@ -72,10 +84,10 @@ input-field {
 
 
 label {
-    monitor = DP-2
+    monitor = $left_mon
     text_align = center
     text = $FAIL
-    color = rgb({{ trimPrefix "#" .colors.red }})
+    color = $text_err_color
     font_size = 20
     font_family = FiraCode
     position = 0, -240
@@ -85,10 +97,10 @@ label {
 }
 
 label {
-    monitor = DP-2
+    monitor = $left_mon
     text_align = center
     text = <b>$ATTEMPTS[]</b>
-    color = rgb({{ trimPrefix "#" .colors.red }})
+    color = $text_err_color
     font_size = 20
     font_family = FiraCode
     position = 0, -280
@@ -98,10 +110,10 @@ label {
 }
 
 label {
-    monitor = DP-1
+    monitor = $right_mon
     text_align = center
     text = cmd[update:1000] cat /tmp/weather_cached
-    color = rgb({{ trimPrefix "#" .colors.fg0 }})
+    color = $bg_text_color
     font_size = 30
     font_family = FiraCode
     position = 0, 240
@@ -111,10 +123,10 @@ label {
 }
 
 label {
-    monitor = DP-1
+    monitor = $right_mon
     text_align = left
     text = cmd[update:0] fortune -s
-    color = rgb({{ trimPrefix "#" .colors.fg0 }})
+    color = $bg_text_color
     font_size = 30
     font_family = FiraCode
     position = 0, -80
