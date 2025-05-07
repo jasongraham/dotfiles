@@ -65,10 +65,12 @@ return {
         end
 
         -- used to enable autocompletion (assign to every lsp server config)
-        local capabilities = require("cmp_nvim_lsp").default_capabilities()
+        vim.lsp.config("*", {
+            capabilities = require("cmp_nvim_lsp").default_capabilities(),
+        })
 
+        -- Individual customized settings for specific lsp servers
         vim.lsp.config("lua_ls", {
-            capabilities = capabilities,
             settings = {
                 Lua = {
                     -- make the language server recognize "vim" global
@@ -81,14 +83,7 @@ return {
                 },
             },
         })
-        vim.lsp.config("bashls", {
-            capabilities = capabilities,
-        })
-        vim.lsp.config("cssls", {
-            capabilities = capabilities,
-        })
         vim.lsp.config("pyright", {
-            capabilities = capabilities,
             filetypes = { "python" },
             settings = {
                 pyright = {
@@ -105,22 +100,6 @@ return {
                     },
                 },
             },
-        })
-        vim.lsp.config("ruff", {
-            capabilities = capabilities,
-        })
-        vim.lsp.config("rust_analyzer", {
-            capabilities = capabilities,
-        })
-        vim.lsp.config("taplo", {
-            capabilities = capabilities,
-        })
-        vim.lsp.config("typos_lsp", {
-            capabilities = capabilities,
-            filetypes = { "*" },
-        })
-        vim.lsp.config("yamlls", {
-            capabilities = capabilities,
         })
     end,
 }
