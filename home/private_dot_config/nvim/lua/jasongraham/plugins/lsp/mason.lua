@@ -13,6 +13,7 @@ return {
                 "rust_analyzer",
                 "taplo",
                 "typos_lsp",
+                "tinymist",
                 "yamlls",
             },
         },
