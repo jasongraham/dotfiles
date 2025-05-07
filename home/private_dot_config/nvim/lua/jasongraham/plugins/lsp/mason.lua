@@ -1,8 +1,12 @@
 return {
     {
-        "williamboman/mason-lspconfig.nvim",
-        version = "^1",
+        "mason-org/mason-lspconfig.nvim",
+        version = "^2",
         event = { "BufReadPre", "BufNewFile" },
+        dependencies = {
+            "mason-org/mason.nvim",
+            "neovim/nvim-lspconfig",
+        },
         opts = {
             -- list of servers for mason to install
             ensure_installed = {
@@ -32,10 +36,10 @@ return {
         },
     },
     {
-        "williamboman/mason.nvim",
+        "mason-org/mason.nvim",
         build = ":MasonUpdate",
         cmd = "Mason",
-        version = "^1",
+        version = "^2",
         opts = {
             ui = {
                 icons = {

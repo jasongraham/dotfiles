@@ -1,20 +1,11 @@
 return {
     "neovim/nvim-lspconfig",
-    version = "^1",
+    version = "^2",
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         "hrsh7th/cmp-nvim-lsp",
     },
     config = function()
-        -- import lspconfig plugin
-        local lspconfig = require("lspconfig")
-
-        -- import mason_lspconfig plugin
-        local mason_lspconfig = require("mason-lspconfig")
-
-        -- import cmp-nvim-lsp plugin
-        local cmp_nvim_lsp = require("cmp_nvim_lsp")
-
         local keymap = vim.keymap -- for conciseness
 
         vim.api.nvim_create_autocmd("LspAttach", {
@@ -66,9 +57,6 @@ return {
             end,
         })
 
-        -- used to enable autocompletion (assign to every lsp server config)
-        local capabilities = cmp_nvim_lsp.default_capabilities()
-
         -- Change the Diagnostic symbols in the sign column (gutter)
         local signs = { Error = " ", Warn = " ", Hint = "󰠠 ", Info = " " }
         for type, icon in pairs(signs) do
@@ -76,93 +64,63 @@ return {
             vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
         end
 
-        mason_lspconfig.setup_handlers({
-            -- default handler for installed servers
-            function(server_name)
-                lspconfig[server_name].setup({
-                    capabilities = capabilities,
-                })
-            end,
-            ["lua_ls"] = function()
-                -- configure lua server (with special settings)
-                lspconfig["lua_ls"].setup({
-                    capabilities = capabilities,
-                    settings = {
-                        Lua = {
-                            -- make the language server recognize "vim" global
-                            diagnostics = {
-                                globals = { "vim" },
-                            },
-                            completion = {
-                                callSnippet = "Replace",
-                            },
-                        },
+        -- used to enable autocompletion (assign to every lsp server config)
+        local capabilities = require("cmp_nvim_lsp").default_capabilities()
+
+        vim.lsp.config("lua_ls", {
+            capabilities = capabilities,
+            settings = {
+                Lua = {
+                    -- make the language server recognize "vim" global
+                    diagnostics = {
+                        globals = { "vim" },
                     },
-                })
-            end,
-            ["bashls"] = function()
-                lspconfig["bashls"].setup({
-                    capabilities = capabilities,
-                    filetypes = { "bash", "sh" },
-                })
-            end,
-            ["cssls"] = function()
-                lspconfig["cssls"].setup({
-                    capabilities = capabilities,
-                    filetypes = { "css" },
-                })
-            end,
-            ["pyright"] = function()
-                lspconfig["pyright"].setup({
-                    capabilities = capabilities,
-                    filetypes = { "python" },
-                    settings = {
-                        pyright = {
-                            -- Using Ruff's import organizer
-                            disableOrganizeImports = true,
-                        },
-                        python = {
-                            analysis = {
-                                -- Ignore all files for analysis to exclusively use Ruff for linting
-                                ignore = { "*" },
-                                autoSearchPaths = true,
-                                diagnosticMode = "openFilesOnly",
-                                useLibraryCodeForTypes = true,
-                            },
-                        },
+                    completion = {
+                        callSnippet = "Replace",
                     },
-                })
-            end,
-            ["ruff"] = function()
-                lspconfig["ruff"].setup({
-                    capabilities = capabilities,
-                    filetypes = { "python" },
-                })
-            end,
-            ["rust_analyzer"] = function()
-                lspconfig["rust_analyzer"].setup({
-                    capabilities = capabilities,
-                    filetypes = { "rust" },
-                })
-            end,
-            ["taplo"] = function()
-                lspconfig["taplo"].setup({
-                    capabilities = capabilities,
-                    filetypes = { "toml" },
-                })
-            end,
-            ["typos_lsp"] = function()
-                lspconfig["typos_lsp"].setup({
-                    capabilities = capabilities,
-                    filetypes = { "*" },
-                })
-            end,
-            ["yamlls"] = function()
-                lspconfig["yamlls"].setup({
-                    capabilities = capabilities,
-                    filetypes = { "yaml" },
-                })
-            end,
+                },
+            },
+        })
+        vim.lsp.config("bashls", {
+            capabilities = capabilities,
+        })
+        vim.lsp.config("cssls", {
+            capabilities = capabilities,
+        })
+        vim.lsp.config("pyright", {
+            capabilities = capabilities,
+            filetypes = { "python" },
+            settings = {
+                pyright = {
+                    -- Using Ruff's import organizer
+                    disableOrganizeImports = true,
+                },
+                python = {
+                    analysis = {
+                        -- Ignore all files for analysis to exclusively use Ruff for linting
+                        ignore = { "*" },
+                        autoSearchPaths = true,
+                        diagnosticMode = "openFilesOnly",
+                        useLibraryCodeForTypes = true,
+                    },
+                },
+            },
+        })
+        vim.lsp.config("ruff", {
+            capabilities = capabilities,
+        })
+        vim.lsp.config("rust_analyzer", {
+            capabilities = capabilities,
+        })
+        vim.lsp.config("taplo", {
+            capabilities = capabilities,
+        })
+        vim.lsp.config("typos_lsp", {
+            capabilities = capabilities,
+            filetypes = { "*" },
+        })
+        vim.lsp.config("yamlls", {
+            capabilities = capabilities,
         })
     end,
 }
