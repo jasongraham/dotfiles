@@ -41,5 +41,3 @@ opt.splitbelow = true -- split horizontal window to the bottom
 opt.swapfile = false
 
 vim.diagnostic.config({ jump = { float = true } })
--- Turn on lsp inlay hints if available
-vim.lsp.inlay_hint.enable()
