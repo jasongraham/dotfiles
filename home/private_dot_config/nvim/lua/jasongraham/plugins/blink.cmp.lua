@@ -16,7 +16,7 @@ return {
         -- 'super-tab' for mappings similar to vscode (tab to accept)
         -- 'enter' for enter to accept
         -- 'none' for no mappings
-        keymap = { preset = "enter" },
+        keymap = { preset = "default" },
 
         completion = {
             accept = { auto_brackets = { enabled = true } },
