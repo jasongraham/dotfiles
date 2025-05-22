@@ -30,7 +30,6 @@ background {
 
 label {
     monitor = $left_mon
-    text_align = center
     text = Welcome back, <span foreground='#{{ .colors.green }}'>$DESC</span>
     color = $bg_text_color
     font_size = 30
@@ -45,19 +44,16 @@ shape {
     monitor = $left_mon
     size = 360, 360
     color = $circle_fill_color
-    rounding = -1
+    rounding = -1  # needed even though hyprlock claims this is default
     border_size = 8
     border_color = $circle_border_color
     shadow_passes = 3
 
     position = 0, 80
-    halign = center
-    valign = center
 }
 
 label {
     monitor = $left_mon
-    text_align = center
     text = $TIME12
     color = $circle_text_color
     font_size = 40
@@ -85,7 +81,6 @@ input-field {
 
 label {
     monitor = $left_mon
-    text_align = center
     text = $FAIL
     color = $text_err_color
     font_size = 20
@@ -98,7 +93,6 @@ label {
 
 label {
     monitor = $left_mon
-    text_align = center
     text = <b>$ATTEMPTS[]</b>
     color = $text_err_color
     font_size = 20
@@ -111,7 +105,6 @@ label {
 
 label {
     monitor = $right_mon
-    text_align = center
     text = cmd[update:1000] cat /tmp/weather_cached
     color = $bg_text_color
     font_size = 30
