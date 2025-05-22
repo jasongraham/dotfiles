@@ -4,6 +4,11 @@
 set -eu -o pipefail
 
 {{   if eq .osid "linux-arch" -}}
+# First install packages needed for building other packages
+if ! pacman -Q base-devel &> /dev/null ; then
+    sudo pacman -Syu base-devel
+fi
+
 # Set up and install aurutils and aurto
 # $1 is the pkg name
 # $2 is the key required, if present
