@@ -3,7 +3,8 @@
 set -eu -o pipefail
 
 readonly FILE="/tmp/weather_cached"
-readonly INTERVAL=600  # seconds
+readonly INTERVAL_MIN=600  # seconds
+readonly INTERVAL_MAX=1200  # seconds
 
 trap 'notify-send -u normal "weather wttr fetch" "exited unexpectedly"' EXIT
 
@@ -13,5 +14,5 @@ done
 
 while true; do
     curl wttr.in/?format=1 --silent --output "$FILE"
-    sleep "$INTERVAL"
+    sleep "$(shuf -i $INTERVAL_MIN-$INTERVAL_MAX -n 1)"
 done
