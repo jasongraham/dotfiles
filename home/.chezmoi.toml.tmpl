@@ -15,9 +15,6 @@
 {{-     $headless = true -}}
 {{-   end -}}
 {{- end -}}
-{{- if eq $hostname "kids-desktop" -}}
-{{-   $headless = true -}}
-{{- end -}}
 
 {{- if hasSuffix ".ad.selinc.com" .chezmoi.fqdnHostname -}}
 {{-   $sel = true -}}
