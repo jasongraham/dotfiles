@@ -33,7 +33,7 @@ bin/updatemirrors
 generate_gitattributes.sh
 {{- end }}
 
-{{ if not .personal -}}
+{{ if .sel -}}
 bin/fake_medicare_id
 bin/lofi-yt
 bin/update_grub.sh

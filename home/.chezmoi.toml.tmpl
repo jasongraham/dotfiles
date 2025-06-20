@@ -1,5 +1,4 @@
 {{/* Global variables */}}
-{{- $personal := false -}}
 {{- $sel := false -}}
 {{- $headless := false -}}
 
@@ -10,15 +9,14 @@
 
 {{- $hostname := .chezmoi.hostname -}}
 
+{{/* Set up headless computers */}}
 {{- if eq .chezmoi.os "linux" -}}
 {{-   if (.chezmoi.kernel.osrelease | lower | contains "microsoft") -}}
 {{-     $headless = true -}}
 {{-   end -}}
 {{- end -}}
-
-{{/* List personal computers */}}
-{{- if eq $hostname "jrg-desktop" -}}
-{{-   $personal = true }}
+{{- if eq $hostname "kids-desktop" -}}
+{{-   $headless = true -}}
 {{- end -}}
 
 {{- if hasSuffix ".ad.selinc.com" .chezmoi.fqdnHostname -}}
@@ -36,7 +34,6 @@
     osid = {{ $osID | quote }}
 
     headless = {{ $headless }}
-    personal = {{ $personal }}
     sel = {{ $sel }}
 
 [edit]
