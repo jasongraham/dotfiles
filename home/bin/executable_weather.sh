@@ -14,5 +14,5 @@ done
 
 while true; do
     curl wttr.in/?format=1 --silent --output "$FILE"
-    sleep "$(shuf -i $INTERVAL_MIN-$INTERVAL_MAX -n 1)"
+    sleep "$((RANDOM % (INTERVAL_MAX-INTERVAL_MAX+1)+INTERVAL_MIN))"
 done
