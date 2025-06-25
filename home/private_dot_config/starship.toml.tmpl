@@ -7,7 +7,7 @@ format = """
 $os\
 $username\
 $hostname\
-[](bg:color_yellow fg:color_orange)\
+[](fg:color_orange bg:color_yellow)\
 $directory\
 [](fg:color_yellow bg:color_aqua)\
 $git_branch\
@@ -47,6 +47,7 @@ color_yellow = '{{ .colors.yellow }}'
 [os]
 disabled = false
 style = "bg:color_orange fg:color_bg1"
+format = "[$symbol ]($style)"
 
 [os.symbols]
 Windows = "󰍲"
@@ -71,8 +72,8 @@ RedHatEnterprise = "󱄛"
 
 [username]
 style_user = "bg:color_orange fg:color_bg1"
-style_root = "bg:color_red fg:color_bg1"
-format = '[ $user]($style)'
+style_root = "bg:color_orange fg:color_bg1 bold"
+format = "[$user]($style)"
 
 [hostname]
 format = '[$ssh_symbol$hostname]($style)'
