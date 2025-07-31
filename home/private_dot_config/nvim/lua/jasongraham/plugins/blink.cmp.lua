@@ -64,24 +64,26 @@ return {
                         -- (if the word is shorter than this, the search will not start)
                         prefix_min_len = 3,
 
-                        -- The number of lines to show around each match in the preview
-                        -- (documentation) window. For example, 5 means to show 5 lines
-                        -- before, then the match, and another 5 lines after the match.
-                        context_size = 5,
+                        backend = {
+                            -- The number of lines to show around each match in the preview
+                            -- (documentation) window. For example, 5 means to show 5 lines
+                            -- before, then the match, and another 5 lines after the match.
+                            context_size = 5,
 
-                        -- The maximum file size of a file that ripgrep should include in
-                        -- its search. Useful when your project contains large files that
-                        -- might cause performance issues.
-                        -- Examples:
-                        -- "1024" (bytes by default), "200K", "1M", "1G", which will
-                        -- exclude files larger than that size.
-                        max_filesize = "1M",
+                            -- The maximum file size of a file that ripgrep should include in
+                            -- its search. Useful when your project contains large files that
+                            -- might cause performance issues.
+                            -- Examples:
+                            -- "1024" (bytes by default), "200K", "1M", "1G", which will
+                            -- exclude files larger than that size.
+                            max_filesize = "1M",
 
-                        -- The casing to use for the search in a format that ripgrep
-                        -- accepts. Defaults to "--ignore-case". See `rg --help` for all the
-                        -- available options ripgrep supports, but you can try
-                        -- "--case-sensitive" or "--smart-case".
-                        search_casing = "--smart-case",
+                            -- The casing to use for the search in a format that ripgrep
+                            -- accepts. Defaults to "--ignore-case". See `rg --help` for all the
+                            -- available options ripgrep supports, but you can try
+                            -- "--case-sensitive" or "--smart-case".
+                            search_casing = "--smart-case",
+                        },
 
                         -- When a result is found for a file whose filetype does not have a
                         -- treesitter parser installed, fall back to regex based highlighting
