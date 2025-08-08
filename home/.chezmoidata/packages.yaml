@@ -51,6 +51,7 @@ packages:
         - "wlsunset"
         - "wpaperd"
         - "udiskie"
+        - "wiremix"
         - "wofi"
         - "wtype"
         - "xdg-desktop-portal-gtk"
