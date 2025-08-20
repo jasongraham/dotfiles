@@ -60,6 +60,15 @@ label {
     position = 0, 80
 }
 
+label {
+    monitor = $left_mon
+    text = cmd[update:1000] date +'%A, %B %e %Y'
+    color = $circle_text_color
+    font_size = 12
+    font_family = FiraCode
+    position = 0,30
+}
+
 # Doesn't display text as you type or show any messages,
 # but useful as an indicator that you are typing something
 input-field {
