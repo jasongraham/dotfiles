@@ -19,9 +19,11 @@
 .config/wpaperd
 
 .local/share/rofi
+bin/date_lockscreen.sh
 bin/leave.sh
 bin/lofi-yt
 bin/perfmode
+bin/weather.sh
 {{- end }}
 
 {{ if ne .osid "linux-arch" -}}
