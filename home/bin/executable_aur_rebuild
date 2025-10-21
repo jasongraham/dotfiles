@@ -4,6 +4,7 @@
 set -eu -o pipefail
 
 readonly PKG=$1
+readonly EXT=".tar.zst"
 
 if ! pacman -Q "$PKG" &> /dev/null ; then
     echo "$PKG is not installed, aborting"
@@ -51,7 +52,7 @@ perform_build() {
 }
 
 if perform_build ; then
-    readonly PKGARRAY=("$REPOPATH"/"$PKG"*)
+    readonly PKGARRAY=("$REPOPATH"/"$PKG"*"$EXT")
     if [ ${#PKGARRAY[@]} -eq 0 ] ; then
         echo "Failed to find package matching $PKG in $REPOPATH"
         exit 3
