@@ -4,27 +4,29 @@ return {
     event = { "BufReadPre", "BufNewFile" },
     dependencies = {
         {
-            "mason-org/mason.nvim",
-            build = ":MasonUpdate",
-            cmd = "Mason",
-            version = "^2",
-            opts = {
-                ui = {
-                    icons = {
-                        package_installed = "✓",
-                        package_pending = "➜",
-                        package_uninstalled = "✗",
-                    },
-                },
-            },
-        },
-        {
             "mason-org/mason-lspconfig.nvim",
             version = "^2",
             opts = {
                 -- use mason-tool-installer for this
                 ensure_installed = {},
                 automatic_installation = false,
+            },
+            dependencies = {
+                {
+                    "mason-org/mason.nvim",
+                    build = ":MasonUpdate",
+                    cmd = "Mason",
+                    version = "^2",
+                    opts = {
+                        ui = {
+                            icons = {
+                                package_installed = "✓",
+                                package_pending = "➜",
+                                package_uninstalled = "✗",
+                            },
+                        },
+                    },
+                },
             },
         },
         {
