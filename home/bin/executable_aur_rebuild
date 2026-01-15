@@ -24,31 +24,9 @@ readonly EXP_OR_DEP
 readonly REPO="aurto"
 readonly REPOPATH=/var/cache/pacman/"$REPO"
 
-setup_build_dir() {
-    local -r BUILD_ROOT="$HOME"/.cache/aurutils/sync
-
-    if [ ! -d "$BUILD_ROOT"/"$PKG" ] ; then
-        cd "$BUILD_ROOT"
-        aur fetch "$PKG"
-    fi
-
-    echo "$BUILD_ROOT"/"$PKG"
-}
-
-BUILD_DIR=$(setup_build_dir)
-readonly BUILD_DIR
-
 perform_build() {
-    cd "$BUILD_DIR"
-
-    aur build \
-        --database="$REPO" \
-        --makepkg-conf=/etc/aurto/makepkg-chroot.conf \
-        --pacman-conf=/etc/aurto/pacman-chroot.conf \
-        --force \
-        --remove \
-        --chroot \
-        "$PKG"
+    aurto remove "$PKG"
+    aurto add "$PKG"
 }
 
 if perform_build ; then
