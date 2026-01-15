@@ -38,7 +38,6 @@ return {
                     "harper_ls",
                     "lua_ls",
                     "luacheck",
-                    "pyright",
                     "ruff",
                     "rust_analyzer",
                     "rustfmt",
@@ -46,6 +45,7 @@ return {
                     "stylua",
                     "taplo",
                     "tinymist",
+                    "ty",
                     "typos_lsp",
                     "yamlls",
                 },
@@ -126,24 +126,6 @@ return {
                     },
                     completion = {
                         callSnippet = "Replace",
-                    },
-                },
-            },
-        })
-        vim.lsp.config("pyright", {
-            filetypes = { "python" },
-            settings = {
-                pyright = {
-                    -- Using Ruff's import organizer
-                    disableOrganizeImports = true,
-                },
-                python = {
-                    analysis = {
-                        -- Ignore all files for analysis to exclusively use Ruff for linting
-                        ignore = { "*" },
-                        autoSearchPaths = true,
-                        diagnosticMode = "openFilesOnly",
-                        useLibraryCodeForTypes = true,
                     },
                 },
             },
