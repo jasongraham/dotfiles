@@ -21,6 +21,7 @@ packages:
       aur:
         - "aurto"
         - "aurutils"
+        - "bibata-cursor-theme-bin"
         - "cfs-zen-tweaks"
         - "downgrade"
         - "oranchelo-icon-theme"
