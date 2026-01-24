@@ -25,7 +25,7 @@
 #window,
 #workspaces,
 #network,
-#cava,
+#mpris,
 #pulseaudio,
 #clock,
 #memory,
@@ -111,9 +111,14 @@ window#waybar.empty #window {
   background: @purple;
 }
 
-#cava {
+#mpris {
   color: @bg0;
   background: @purple;
+}
+
+#mpris.paused {
+  color: @bg1;
+  background: @fg1;
 }
 
 #pulseaudio {

@@ -28,7 +28,6 @@ packages:
         - "python-jupytext"
         - "quarto-cli-bin"
         - "ttf-ms-win10-auto"
-        - "waybar-cava"
         - "wayland-pipewire-idle-inhibit"
       headed:
         - "firefox"
@@ -42,6 +41,7 @@ packages:
         - "kitty"
         - "libreoffice-still"
         - "mpv"
+        - "mpv-mpris"
         - "pkgstats"
         - "profile-cleaner"
         - "profile-sync-daemon"
@@ -52,6 +52,7 @@ packages:
         - "wlsunset"
         - "wpaperd"
         - "udiskie"
+        - "waybar"
         - "wiremix"
         - "wofi"
         - "wtype"
