@@ -23,5 +23,5 @@ while true; do
         date -r "$FILE" "+%I:%M%p" >> "$FILE"
     fi
     # Regardless, try again later
-    sleep "$((RANDOM % (INTERVAL_MAX-INTERVAL_MAX+1)+INTERVAL_MIN))"
+    sleep "$((RANDOM % (INTERVAL_MAX-INTERVAL_MIN+1)+INTERVAL_MIN))"
 done
