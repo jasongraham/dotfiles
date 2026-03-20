@@ -10,11 +10,11 @@ choice=$(printf "Lock\nLogout\nSuspend\nReboot\nShutdown" | wofi --show=dmenu -i
 if [[ $choice == "Lock" ]];then
     hyprctl dispatch exec hyprlock
 elif [[ $choice == "Logout" ]];then
-    hyprctl dispatch exit
+    hyprshutdown --top-label "Logging out..."
 elif [[ $choice == "Suspend" ]];then
     systemctl suspend
 elif [[ $choice == "Reboot" ]];then
-    systemctl reboot
+    hyprshutdown --top-label "Rebooting..." --post-cmd "systemctl reboot"
 elif [[ $choice == "Shutdown" ]];then
-    systemctl poweroff
+    hyprshutdown --top-label "Shutting down..." --post-cmd "systemctl poweroff"
 fi

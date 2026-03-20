@@ -24,6 +24,7 @@ packages:
         - "bibata-cursor-theme-bin"
         - "cfs-zen-tweaks"
         - "downgrade"
+        - "hyprshutdown"
         - "oranchelo-icon-theme"
         - "python-jupytext"
         - "quarto-cli-bin"
