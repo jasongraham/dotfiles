@@ -40,7 +40,6 @@ return {
                     "luacheck",
                     "ruff",
                     "rust_analyzer",
-                    "rustfmt",
                     "shellcheck",
                     "stylua",
                     "taplo",
