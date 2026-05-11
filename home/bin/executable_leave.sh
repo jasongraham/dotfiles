@@ -14,7 +14,7 @@ elif [[ $choice == "Logout" ]];then
 elif [[ $choice == "Suspend" ]];then
     systemctl suspend
 elif [[ $choice == "Reboot" ]];then
-    hyprshutdown --top-label "Rebooting..." --post-cmd "systemctl reboot"
+    hyprshutdown --top-label "Rebooting..." --post-cmd "systemctl reboot" || systemctl reboot
 elif [[ $choice == "Shutdown" ]];then
-    hyprshutdown --top-label "Shutting down..." --post-cmd "systemctl poweroff"
+    hyprshutdown --top-label "Shutting down..." --post-cmd "systemctl poweroff" || systemctl poweroff
 fi
