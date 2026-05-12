@@ -48,11 +48,7 @@ local session_manager = "~/bin/leave.sh"
 -- Autostart necessary processes (like notifications daemons, status bars, etc.)
 -- Or execute your favorite apps at launch like this:
 
-hl.on("hyprland.start", function()
-    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_SESSION_DESKTOP XDG_CURRENT_DESKTOP")
-end)
-
-hl.on("config.reloaded", function()
+local function on_start_or_reload()
     hl.exec_cmd("pidof -x weather.sh || ~/bin/weather.sh")
     hl.exec_cmd("pidof mako || mako")
     hl.exec_cmd("pidof hypridle || hypridle")
@@ -61,7 +57,15 @@ hl.on("config.reloaded", function()
     hl.exec_cmd("pidof wpaperd || wpaperd -d")
     hl.exec_cmd("pidof waybar || waybar")
     hl.exec_cmd("pidof -x udiskie || udiskie")
+end
+
+hl.on("hyprland.start", function()
+    hl.exec_cmd("dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_SESSION_DESKTOP XDG_CURRENT_DESKTOP")
+
+    on_start_or_reload()
 end)
+
+hl.on("config.reloaded", on_start_or_reload)
 
 -----------------------------
 --- ENVIRONMENT VARIABLES ---

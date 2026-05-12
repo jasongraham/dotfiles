@@ -1,6 +1,7 @@
-hl.permission("/usr/bin/grim", "screencopy", "allow")
-hl.permission("/usr/bin/hyprlock", "screencopy", "allow")
+hl.permission({ binary = "/usr/bin/grim", type = "screencopy", mode = "allow" })
+hl.permission({ binary = "/usr/bin/hyprlock", type = "screencopy", mode = "allow" })
+hl.permission({ binary = ".*", type = "screencopy", mode = "deny" })
 
 -- Shouldn't have anything asking for these
-hl.permission("/usr/lib/xdg-desktop-portal-hyprland", "screencopy", "ask")
-hl.permission(".*", "plugin", "deny")
+hl.permission({ binary = "/usr/lib/xdg-desktop-portal-hyprland", type = "screencopy", mode = "ask" })
+hl.permission({ binary = ".*", type = "plugin", mode = "deny" })
