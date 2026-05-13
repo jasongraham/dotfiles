@@ -35,7 +35,6 @@ return {
       opts = {
         ensure_installed = {
           "bashls",
-          "harper_ls",
           "lua_ls",
           "luacheck",
           "ruff",
@@ -106,16 +105,6 @@ return {
     })
 
     -- Individual customized settings for specific lsp servers
-    vim.lsp.config("harper_ls", {
-      settings = {
-        ["harper-ls"] = {
-          linters = {
-            SentenceCapitalization = false, -- code comments don't need this
-            SpellCheck = false, -- let typos do this part
-          },
-        },
-      },
-    })
     vim.lsp.config("lua_ls", {
       settings = {
         Lua = {
