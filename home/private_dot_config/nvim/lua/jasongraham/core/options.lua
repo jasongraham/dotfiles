@@ -31,7 +31,7 @@ vim.o.backspace = "indent,eol,start" -- allow backspace on indent, end of line o
 -- clipboard
 -- Schedule the settings after 'UiEnter to reduce start-up time'
 vim.schedule(function()
-    vim.o.clipboard = "unnamedplus" -- use system clipboard as default register
+  vim.o.clipboard = "unnamedplus" -- use system clipboard as default register
 end)
 
 -- split windows

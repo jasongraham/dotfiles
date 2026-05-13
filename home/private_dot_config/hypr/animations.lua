@@ -21,11 +21,11 @@ hl.animation({ leaf = "windowsIn", enabled = true, speed = fast, bezier = "easeO
 hl.animation({ leaf = "layers", enabled = true, speed = faster, bezier = "easeOut", style = "popin" })
 hl.animation({ leaf = "workspaces", enabled = true, speed = fast, bezier = "easeOut", style = "slidefade 50%" })
 hl.animation({
-    leaf = "specialWorkspace",
-    enabled = true,
-    speed = fast,
-    bezier = "easeOut",
-    style = "slidefadevert 50%",
+  leaf = "specialWorkspace",
+  enabled = true,
+  speed = fast,
+  bezier = "easeOut",
+  style = "slidefadevert 50%",
 })
 hl.animation({ leaf = "zoomFactor", enabled = true, speed = fast, bezier = "easeOut" })
 hl.animation({ leaf = "monitorAdded", enabled = true, speed = fast, bezier = "easeOut" })
@@ -39,11 +39,11 @@ hl.animation({ leaf = "windowsOut", enabled = true, speed = slow, bezier = "ease
 hl.animation({ leaf = "layersOut", enabled = true, speed = slow, bezier = "easeOut", style = "popin" })
 hl.animation({ leaf = "workspacesOut", enabled = true, speed = slow, bezier = "easeOut", style = "slidefade" })
 hl.animation({
-    leaf = "specialWorkspaceOut",
-    enabled = true,
-    speed = slow,
-    bezier = "easeOut",
-    style = "slidefadevert",
+  leaf = "specialWorkspaceOut",
+  enabled = true,
+  speed = slow,
+  bezier = "easeOut",
+  style = "slidefadevert",
 })
 -- ... with fast fadeout
 hl.animation({ leaf = "fadeOut", enabled = true, speed = fast, bezier = "easeOut" })

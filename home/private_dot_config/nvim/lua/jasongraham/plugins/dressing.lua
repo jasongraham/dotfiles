@@ -1,5 +1,5 @@
 return {
-    "stevearc/dressing.nvim",
-    version = "*",
-    event = "VeryLazy",
+  "stevearc/dressing.nvim",
+  version = "*",
+  event = "VeryLazy",
 }

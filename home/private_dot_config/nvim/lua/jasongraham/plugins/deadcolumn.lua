@@ -1,5 +1,5 @@
 return {
-    "Bekaboo/deadcolumn.nvim",
-    version = "*",
-    event = { "BufReadPre", "BufNewFile" },
+  "Bekaboo/deadcolumn.nvim",
+  version = "*",
+  event = { "BufReadPre", "BufNewFile" },
 }

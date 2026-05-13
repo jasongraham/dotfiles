@@ -1,5 +1,5 @@
 return {
-    "sphamba/smear-cursor.nvim",
-    event = { "VeryLazy" },
-    config = true,
+  "sphamba/smear-cursor.nvim",
+  event = { "VeryLazy" },
+  config = true,
 }
