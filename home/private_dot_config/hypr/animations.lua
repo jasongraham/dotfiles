@@ -1,4 +1,4 @@
--- https://wiki.hyprland.org/Configuring/Variables/#animations
+-- https://wiki.hypr.land/Configuring/Advanced-and-Cool/Animations/
 
 -- In increments of 100ms
 local faster = 2

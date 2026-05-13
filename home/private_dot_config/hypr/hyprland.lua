@@ -2,7 +2,7 @@
 --- MONITORS ---
 ----------------
 
--- See https://wiki.hyprland.org/Configuring/Monitors/
+-- See https://wiki.hypr.land/Configuring/Basics/Monitors/
 
 -- DP2 on the left
 hl.monitor({
@@ -29,8 +29,6 @@ hl.monitor({
 -------------------
 --- MY PROGRAMS ---
 -------------------
-
--- See https://wiki.hyprland.org/Configuring/Keywords/
 
 -- Set programs that you use
 local terminal = "kitty --single-instance"
@@ -71,7 +69,7 @@ hl.on("config.reloaded", on_start_or_reload)
 --- ENVIRONMENT VARIABLES ---
 -----------------------------
 
--- See https://wiki.hyprland.org/Configuring/Environment-variables/
+-- See https://wiki.hypr.land/Configuring/Advanced-and-Cool/Environment-variables/
 
 hl.env("XCURSOR_THEME", "Bibata - Modern - Classic")
 hl.env("XCURSOR_SIZE", "24")
@@ -91,7 +89,7 @@ hl.config({
   cursor = {
     default_monitor = "DP-2",
   },
-  -- See https://wiki.hyprland.org/Configuring/Master-Layout/ for more
+  -- See https://wiki.hypr.land/Configuring/Layouts/Master-Layout/ for more
   master = {
     mfact = 0.6,
     new_status = "inherit",
@@ -99,7 +97,7 @@ hl.config({
     special_scale_factor = 0.9,
   },
 
-  -- https://wiki.hyprland.org/Configuring/Variables/#misc
+  -- https://wiki.hypr.land/Configuring/Basics/Variables/#misc
   misc = {
     disable_hyprland_logo = true,
     disable_splash_rendering = true,
@@ -111,7 +109,7 @@ hl.config({
     key_press_enables_dpms = true,
   },
 
-  -- https://wiki.hyprland.org/Configuring/Variables/#ecosystem
+  -- https://wiki.hypr.land/Configuring/Basics/Variables/#ecosystem
   ecosystem = {
     no_update_news = true,
     no_donation_nag = true,
@@ -122,7 +120,7 @@ hl.config({
 --- INPUT ---
 -------------
 
--- https://wiki.hyprland.org/Configuring/Variables/-input
+-- https://wiki.hypr.land/Configuring/Basics/Variables/#input
 
 hl.config({
   input = {
@@ -148,7 +146,7 @@ hl.config({
 --- KEYBINDINGS ---
 -------------------
 
--- See https://wiki.hyprland.org/Configuring/Keywords/
+-- See https://wiki.hypr.land/Configuring/Basics/Binds/
 local mainMod = "SUPER" -- Sets "Windows" key as main modifier
 
 -- Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more

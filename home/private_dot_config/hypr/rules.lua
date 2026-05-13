@@ -2,7 +2,7 @@
 --- Workspace Rules ---
 -----------------------
 --
--- See https://wiki.hyprland.org/Configuring/Workspace-Rules/
+-- See https://wiki.hypr.land/Configuring/Basics/Workspace-Rules/
 
 hl.workspace_rule({
   workspace = "1",
@@ -18,7 +18,7 @@ hl.workspace_rule({
 --- Window Rules ---
 --------------------
 
--- See https://wiki.hyprland.org/Configuring/Window-Rules/
+-- See https://wiki.hypr.land/Configuring/Basics/Window-Rules/
 
 hl.window_rule({
   name = "Ignore Maximize",

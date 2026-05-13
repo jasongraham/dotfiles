@@ -2,7 +2,7 @@
 --- LOOK AND FEEL ---
 ---------------------
 
--- Refer to https://wiki.hyprland.org/Configuring/Variables/
+-- Refer to https://wiki.hypr.land/Configuring/Basics/Variables/
 
 -- https://wiki.hypr.land/Configuring/Basics/Variables/#general
 hl.config({
@@ -12,7 +12,7 @@ hl.config({
 
     border_size = 2,
 
-    -- https://wiki.hyprland.org/Configuring/Variables/-variable-types for info about colors
+    -- https://wiki.hypr.land/Configuring/Basics/Variables/#variable-types
     col = {
       active_border = { colors = { "rgba(7daea3dd)", "rgba(89b482dd)", angle = 45 } },
       inactive_border = "rgba(928374aa)",
@@ -21,7 +21,7 @@ hl.config({
     layout = "master",
   },
 
-  -- https://wiki.hyprland.org/Configuring/Variables/-decoration
+  -- https://wiki.hypr.land/Configuring/Basics/Variables/#decoration
   decoration = {
     rounding = 5,
 
@@ -29,7 +29,7 @@ hl.config({
     active_opacity = 0.95,
     inactive_opacity = 0.9,
 
-    -- https://wiki.hyprland.org/Configuring/Variables/-blur
+    -- https://wiki.hypr.land/Configuring/Basics/Variables/#blur
     blur = {
       passes = 3,
       noise = 0.1,
