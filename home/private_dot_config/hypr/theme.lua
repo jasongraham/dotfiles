@@ -36,6 +36,11 @@ hl.config({
       special = true,
     },
 
+    glow = {
+      enabled = true,
+      color = "rgba(7daea3dd)",
+    },
+
     shadow = {
       color = "rgba(1d2021ee)",
     },
