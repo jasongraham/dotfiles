@@ -8,7 +8,7 @@ pidof wofi && exit
 
 choice=$(printf "Lock\nLogout\nSuspend\nReboot\nShutdown" | wofi --show=dmenu -i)
 if [[ $choice == "Lock" ]];then
-    hyprctl dispatch exec hyprlock
+    hyprctl dispatch 'hl.dsp.exec_cmd("hyprlock")'
 elif [[ $choice == "Logout" ]];then
     hyprshutdown --top-label "Logging out..."
 elif [[ $choice == "Suspend" ]];then
