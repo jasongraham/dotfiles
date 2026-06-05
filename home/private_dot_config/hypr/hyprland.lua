@@ -79,6 +79,9 @@ hl.env("HYPRCURSOR_SIZE", "24")
 -- XDG Settings
 hl.env("XDG_SESSION_TYPE", "wayland")
 
+-- Wayland support in electron apps
+hl.env("ELECTRON_OZONE_PLATFORM_HINT", "auto")
+
 -- NVIDIA settings
 hl.env("GBM_BACKEND", "nvidia - drm")
 hl.env("__GLX_VENDOR_LIBRARY_NAME", "nvidia")
