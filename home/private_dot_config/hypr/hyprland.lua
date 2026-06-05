@@ -205,7 +205,7 @@ for i = 0, 9 do
   -- Switch workspaces with mainMod + [0-9]
   hl.bind(mainMod .. " + " .. key, hl.dsp.focus({ workspace = i }))
   -- Move active window to a workspace with mainMod + SHIFT + [0-9]
-  hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i }))
+  hl.bind(mainMod .. " + SHIFT + " .. key, hl.dsp.window.move({ workspace = i, follow = false }))
 end
 
 -- Example special workspace (scratchpad)
