@@ -277,6 +277,9 @@ hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true 
 --- Behaviors ---
 -----------------
 -- https://wiki.hypr.land/0.57.0/configuring/code-snippets/#float-browsers-extension-windows
+-- Try to float browser extension windows
+-- With behavior set below, additional Firefox windows opened beyond the first in a workspace will
+-- float until you change their window title (ie, open a new page)
 hl.on("window.open", function(w)
   if w.class ~= "firefox" then
     return
@@ -284,38 +287,33 @@ hl.on("window.open", function(w)
   if w.initial_title ~= "Mozilla Firefox" then
     return
   end
-
-  local ff_windows = hl.get_windows({ class = "firefox" })
+  local ff_windows = hl.get_windows({ workspace = hl.get_active_workspace(), class = "firefox" })
   if #ff_windows <= 1 then
     return
   end
 
   hl.dispatch(hl.dsp.window.float({ action = "set", window = w }))
+end)
 
-  local sub
-  sub = hl.on("window.title", function(tw)
-    if tw.address ~= w.address then
-      return
-    end
-    if
-      tw.title == ""
-      or tw.title == "Mozilla Firefox"
-      or tw.title == "about:blank"
-      or tw.title:match("^about:.*Mozilla Firefox$")
-    then
-      return
-    end
-
-    sub:remove()
-
-    if tw.title:match("^Extension:") then
-      hl.dispatch(hl.dsp.window.resize({ x = 800, y = 600, window = tw }))
-      hl.dispatch(hl.dsp.window.center({ window = tw }))
-      hl.dispatch(hl.dsp.focus({ window = tw }))
-    else
-      hl.dispatch(hl.dsp.window.float({ action = "unset", window = tw }))
-    end
-  end)
+-- Not using a spawned event as in wiki article above as opening an extension window from
+-- a blank firefox window causes weird behaviors
+hl.on("window.title", function(w)
+  if w.class ~= "firefox" then
+    return
+  end
+  if w.initial_title ~= "Mozilla Firefox" then
+    return
+  end
+  if not w.floating then
+    return
+  end
+  if w.title:match("^Extension:") then
+    hl.dispatch(hl.dsp.window.resize({ x = 800, y = 600, window = w }))
+    hl.dispatch(hl.dsp.window.center({ window = w }))
+    hl.dispatch(hl.dsp.focus({ window = w }))
+  else
+    hl.dispatch(hl.dsp.window.float({ action = "unset", window = w }))
+  end
 end)
 
 ---------------
