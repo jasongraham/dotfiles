@@ -4,7 +4,7 @@ return {
     -- optional: provides snippets for the snippet source
     "rafamadriz/friendly-snippets",
     "folke/lazydev.nvim",
-    "mikavilpas/blink-ripgrep.nvim",
+    { "mikavilpas/blink-ripgrep.nvim", version = "2.*" },
   },
   event = "InsertEnter",
   version = "1.*",
