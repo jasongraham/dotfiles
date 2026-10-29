@@ -54,7 +54,7 @@ local function on_start_or_reload()
   hl.exec_cmd("pidof wlsunset || wlsunset -l 46.7 -L -117.2 -T 4800 -t 3700")
   hl.exec_cmd("pidof wpaperd || wpaperd -d")
   hl.exec_cmd("pidof waybar || waybar")
-  hl.exec_cmd("pidof -x udiskie || udiskie")
+  hl.exec_cmd("pidof -x udiskie || udiskie --tray")
 end
 
 hl.on("hyprland.start", function()
@@ -162,7 +162,27 @@ end)
 hl.bind(mainMod .. " + P", hl.dsp.exec_cmd(menu))
 hl.bind(mainMod .. " + SHIFT + P", hl.dsp.exec_cmd(pw_manager))
 
-hl.bind(mainMod .. " + F1", hl.dsp.exec_cmd("~/bin/perfmode"))
+-- performance mode
+hl.bind(mainMod .. " + F1", function()
+  local perf_mode = (hl.get_config("animations.enabled") == false)
+  if perf_mode then
+    hl.exec_cmd("hyprctl reload")
+    return
+  end
+  hl.config({
+    general = { gaps_in = 0, gaps_out = 0, border_size = 1 },
+
+    animations = { enabled = false },
+
+    decoration = {
+      shadow = { enabled = false },
+      blur = { enabled = false },
+      glow = { enabled = false },
+      wobble = { enabled = false },
+      rounding = 0,
+    },
+  })
+end)
 
 hl.bind(mainMod .. " + F", function()
   hl.dispatch(hl.dsp.window.fullscreen({ action = "toggle" }))
@@ -213,7 +233,7 @@ end
 
 -- Example special workspace (scratchpad)
 hl.bind(mainMod .. " + S", hl.dsp.workspace.toggle_special("magic"))
-hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic" }))
+hl.bind(mainMod .. " + SHIFT + S", hl.dsp.window.move({ workspace = "special:magic", follow = false }))
 
 -- Scroll through existing workspaces with mainMod + scroll
 hl.bind(mainMod .. " + mouse_down", hl.dsp.focus({ workspace = "e+1" }))
@@ -252,6 +272,51 @@ hl.bind("XF86AudioNext", hl.dsp.exec_cmd("playerctl next"), { locked = true })
 hl.bind("XF86AudioPause", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPlay", hl.dsp.exec_cmd("playerctl play-pause"), { locked = true })
 hl.bind("XF86AudioPrev", hl.dsp.exec_cmd("playerctl previous"), { locked = true })
+
+-----------------
+--- Behaviors ---
+-----------------
+-- https://wiki.hypr.land/0.57.0/configuring/code-snippets/#float-browsers-extension-windows
+hl.on("window.open", function(w)
+  if w.class ~= "firefox" then
+    return
+  end
+  if w.initial_title ~= "Mozilla Firefox" then
+    return
+  end
+
+  local ff_windows = hl.get_windows({ class = "firefox" })
+  if #ff_windows <= 1 then
+    return
+  end
+
+  hl.dispatch(hl.dsp.window.float({ action = "set", window = w }))
+
+  local sub
+  sub = hl.on("window.title", function(tw)
+    if tw.address ~= w.address then
+      return
+    end
+    if
+      tw.title == ""
+      or tw.title == "Mozilla Firefox"
+      or tw.title == "about:blank"
+      or tw.title:match("^about:.*Mozilla Firefox$")
+    then
+      return
+    end
+
+    sub:remove()
+
+    if tw.title:match("^Extension:") then
+      hl.dispatch(hl.dsp.window.resize({ x = 800, y = 600, window = tw }))
+      hl.dispatch(hl.dsp.window.center({ window = tw }))
+      hl.dispatch(hl.dsp.focus({ window = tw }))
+    else
+      hl.dispatch(hl.dsp.window.float({ action = "unset", window = tw }))
+    end
+  end)
+end)
 
 ---------------
 --- Sources ---

@@ -44,6 +44,13 @@ hl.config({
     shadow = {
       color = "rgba(1d2021ee)",
     },
+
+    wobble = {
+      enabled = true,
+      stiffness = 800,
+      damping = 24,
+      intensity = 2,
+    },
   },
 })
 
