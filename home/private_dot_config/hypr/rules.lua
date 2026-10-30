@@ -14,6 +14,13 @@ hl.workspace_rule({
   monitor = "DP-1",
 })
 
+-- Extra large gaps in special workspace
+hl.workspace_rule({
+  workspace = "s[true]",
+  gaps_in = 20,
+  gaps_out = 50,
+})
+
 --------------------
 --- Window Rules ---
 --------------------

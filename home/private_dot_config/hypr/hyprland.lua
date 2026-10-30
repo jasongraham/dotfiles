@@ -97,7 +97,6 @@ hl.config({
     mfact = 0.6,
     new_status = "inherit",
     new_on_top = true,
-    special_scale_factor = 0.9,
   },
 
   -- https://wiki.hypr.land/Configuring/Basics/Variables/#misc
